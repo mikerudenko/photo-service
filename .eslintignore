@@ -1,0 +1,6 @@
+/scripts/
+/lib
+*.d.ts
+.eslintrc.js
+.prettierrc
+serviceWorker.ts
