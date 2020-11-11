@@ -37,7 +37,7 @@ export const signInWithProvider = async ({
   return firebaseAuth.signInWithPopup(providerInstance);
 };
 
-export const getUserRole = async (user: any | null) => {
+export const getUserRole = async (_: string, user: any | null) => {
   let token;
   if (user) {
     token = await user.getIdTokenResult();
@@ -67,9 +67,22 @@ export const useGetUser = () => {
 
   return {
     user: data,
-    role: getUserRole(data),
     isFetched,
     userLoading: isLoading,
     userError: error,
+  };
+};
+
+export const useGetUserRole = (user: any | null) => {
+  const { data, error, isLoading, isFetched } = useQuery(
+    [RESOURCE_MAP.user, user?.id],
+    getUserRole,
+  );
+
+  return {
+    role: data,
+    isFetched,
+    roleLoading: isLoading,
+    roleError: error,
   };
 };

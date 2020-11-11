@@ -2,7 +2,7 @@ import React, { memo, FC } from 'react';
 import { useForm, FormProvider, UseFormOptions } from 'react-hook-form';
 
 export type AppFormProps = {
-  onSubmit(values: any, e: any): void;
+  onSubmit(values: any, event: any, setError: any): void;
   className?: string;
   formConfig?: UseFormOptions<any>;
 };
@@ -22,7 +22,12 @@ export const AppForm: FC<AppFormProps> = memo(
 
     return (
       <FormProvider {...methods}>
-        <form className={className} onSubmit={methods.handleSubmit(onSubmit)}>
+        <form
+          className={className}
+          onSubmit={methods.handleSubmit((payload, event) =>
+            onSubmit(payload, event, methods.setError),
+          )}
+        >
           {children}
         </form>
       </FormProvider>

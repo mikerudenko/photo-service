@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
+import { AppContainer } from '../components/app-container';
 
 export const AdminProfile = memo(() => {
-  return <div>Admin profile</div>;
+  return <AppContainer>Admin profile</AppContainer>;
 });

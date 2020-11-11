@@ -1,9 +1,10 @@
 import get from 'lodash/get';
 
-import { signOut, useGetUser } from '../../../api';
+import { signOut, useGetUser, useGetUserRole } from '../../../api';
 
 export const useAppHeaderLogic = () => {
-  const { user, role, userLoading } = useGetUser();
+  const { user, userLoading } = useGetUser();
+  const { role } = useGetUserRole(user);
 
   return {
     onSignOutClick: signOut,
