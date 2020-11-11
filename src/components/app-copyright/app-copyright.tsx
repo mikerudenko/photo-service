@@ -1,8 +1,6 @@
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import React, { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
-
 import { copyrightMessages } from './app-copyright.messages';
 
 type AppCopyrightProps = {
@@ -16,11 +14,7 @@ export const AppCopyright = memo(({ className }: AppCopyrightProps) => (
     align='center'
     className={className}
   >
-    Copyright©
-    <Link color='inherit' href='#'>
-      BookLake
-    </Link>
-    {new Date().getFullYear()}.{' '}
+    Copyright© Photo Service {new Date().getFullYear()}.{' '}
     <FormattedMessage {...copyrightMessages.allRightsReserved} />
   </Typography>
 ));

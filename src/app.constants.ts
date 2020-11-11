@@ -17,7 +17,7 @@ export enum ROUTES {
   // Auth routes
   signIn = '/sign-in',
   signUp = '/sign-up',
-  forgotPassword = '/forgot-password',
+  resetPassword = '/reset-password',
 
   // User profile routers
   profile = '/profile',

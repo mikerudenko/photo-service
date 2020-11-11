@@ -1,12 +1,13 @@
+import { RESOURCE_MAP } from 'api/api.constants';
 import firebase from 'firebase';
 import get from 'lodash/get';
-
+import { useQuery } from 'react-query';
+import { firebaseAuth } from '../../services/firebase-service';
 import {
   AUTH_PROVIDERS,
   CredentialsPayload,
   ProviderPayload,
 } from './api-auth.constants';
-import { firebaseAuth } from '../../services/firebase-service';
 
 const PROVIDER_RESOLVERS = {
   [AUTH_PROVIDERS.google]: new firebase.auth.GoogleAuthProvider(),
@@ -57,3 +58,18 @@ export const sendPasswordResetEmail = (email: string) =>
 
 export const setLocale = (locale: string) =>
   (firebaseAuth.languageCode = locale);
+
+export const useGetUser = () => {
+  const { data, error, isLoading, isFetched } = useQuery(
+    [RESOURCE_MAP.user],
+    getCurrentUser,
+  );
+
+  return {
+    user: data,
+    role: getUserRole(data),
+    isFetched,
+    userLoading: isLoading,
+    userError: error,
+  };
+};

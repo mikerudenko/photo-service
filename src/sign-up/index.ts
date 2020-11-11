@@ -1,1 +1,1 @@
-export * from './sign-up.loadable';
+export * from './sign-up';

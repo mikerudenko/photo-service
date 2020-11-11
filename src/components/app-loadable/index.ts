@@ -1,1 +1,1 @@
-export * from './app-loadable'
+export * from './app-loadable';

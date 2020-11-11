@@ -10,17 +10,9 @@ import { ROUTES } from '../../../../app.constants';
 import { AppLink } from '../../../app-link';
 import { useAppHeaderLogic } from '../use-app-header-logic';
 import { useHeaderRightSectionStyles } from './use-header-right-section-styles';
-import noop from 'lodash/noop';
 
 export const HeaderRightSection = memo(() => {
-  const {
-    // @ts-ignore
-    photoURL = '',
-    // @ts-ignore
-    user = '',
-    // @ts-ignore
-    onSignOutClick = noop,
-  } = useAppHeaderLogic();
+  const { photoURL, user, onSignOutClick } = useAppHeaderLogic();
   const { formatMessage } = useIntl();
   const classes = useHeaderRightSectionStyles();
 

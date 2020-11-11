@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { IOThemeType } from '../Themes/theme.types';
 
-export const useIOActionMenuStyles = makeStyles((theme: IOThemeType) => ({
+export const useIOActionMenuStyles = makeStyles((theme: any) => ({
   actionMenuWrapper: {
     position: 'relative',
     width: 39,
@@ -25,7 +24,7 @@ export const useIOActionMenuStyles = makeStyles((theme: IOThemeType) => ({
   },
   actionMenuItem: {
     '&:not(:last-child)': {
-      borderBottom: `1px solid ${theme.palette.divider}`,
+      borderBottom: `1px solid grey`,
       paddingBottom: 14,
       marginBottom: 10,
     },

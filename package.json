@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^2.10.6",
+    "@hookform/resolvers": "^1.0.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -34,6 +35,8 @@
     "react-hook-form": "^6.11.0",
     "react-intl": "^5.10.0",
     "react-query": "^2.26.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
@@ -76,6 +79,7 @@
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
     "@types/react-copy-to-clipboard": "^4.3.0",
+    "@types/react-document-title": "^2.0.4",
     "@types/react-dom": "^16.9.9",
     "@types/react-input-mask": "2.0.5",
     "@types/react-redux": "^7.1.11",

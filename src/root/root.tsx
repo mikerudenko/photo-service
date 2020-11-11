@@ -18,8 +18,8 @@ import { useRootStyles } from './use-root-styles';
 import { StartPage } from '../start-page';
 
 export const Root = memo(() => {
-  const location = useLocation();
   const onlineStatus = useOnlineStatus();
+  const location = useLocation();
 
   useRootStyles();
 
@@ -35,7 +35,7 @@ export const Root = memo(() => {
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={'ua'}>
       <Switch>
         <Route path={ROUTES.signIn} component={SignIn} />
-        <Route path={ROUTES.forgotPassword} component={ResetPassword} />
+        <Route path={ROUTES.resetPassword} component={ResetPassword} />
         <Route path={ROUTES.signUp} component={SignUp} />
         <Route path={ROUTES.profile} component={Profile} />
         <Route path={ROUTES.notFound} component={NotFound} />

@@ -1,11 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 import { AppSpinner } from '../app-spinner';
 
-export const IOLoadable = (importFunc: any) => {
+export const AppLoadable = (importFunc: any) => {
   const LazyComponent = lazy(importFunc);
 
   return (props: any) => (
-    <Suspense fallback={<AppSpinner />}>
+    <Suspense fallback={<AppSpinner absoluteCentered />}>
       <LazyComponent {...props} />
     </Suspense>
   );

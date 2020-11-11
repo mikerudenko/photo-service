@@ -1,18 +1,15 @@
 import get from 'lodash/get';
-import { useCallback } from 'react';
-import noop from 'lodash/noop';
 
-// import { useAuthConnect } from '../../../store/auth/use-auth-connect';
+import { signOut, useGetUser } from '../../../api';
 
 export const useAppHeaderLogic = () => {
-  // const { user, SignOutRequest, role } = useAuthConnect();
-  // const onSignOutClick = useCallback(() => {
-  //   SignOutRequest(undefined, META_THUNK);
-  // }, [SignOutRequest]);
-  // return {
-  //   onSignOutClick: noop,
-  //   role,
-  //   user,
-  //   photoURL: get(user, 'photoURL'),
-  // };
+  const { user, role, userLoading } = useGetUser();
+
+  return {
+    onSignOutClick: signOut,
+    role,
+    user,
+    userLoading,
+    photoURL: get(user, 'photoURL') || '',
+  };
 };

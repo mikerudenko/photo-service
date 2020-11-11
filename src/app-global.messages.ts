@@ -27,7 +27,7 @@ export const globalMessages = defineMessages({
   },
   signIn: {
     id: 'app.sign-in',
-    defaultMessage: 'Payment',
+    defaultMessage: 'Sign in',
   },
   signOut: {
     id: 'app.sign-out',
@@ -44,5 +44,21 @@ export const globalMessages = defineMessages({
   englishLanguage: {
     id: 'app.english-language',
     defaultMessage: 'English',
+  },
+  email: {
+    id: 'app.email',
+    defaultMessage: 'Email',
+  },
+  password: {
+    id: 'app.password',
+    defaultMessage: 'Password',
+  },
+  confirmPassword: {
+    id: 'app.confirm-password',
+    defaultMessage: 'Confirm Password',
+  },
+  signUp: {
+    id: 'app.sign-uo',
+    defaultMessage: 'Sign Up',
   },
 });

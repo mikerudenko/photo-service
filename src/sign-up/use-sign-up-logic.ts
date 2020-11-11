@@ -1,10 +1,10 @@
-import { useCallback } from 'react';
-import { useAuthConnect, useAuthLogic } from '../store/auth';
-import { META_THUNK } from '../app.constants';
+import { useAutoCallback } from 'hooks.macro';
 import {
   VALIDATION_STRATEGIES,
   createValidationResolver,
 } from '../services/validation-service';
+import { signUpWithCredentials } from '../api';
+import { useAuthLogic } from '../hooks/use-auth-logic';
 
 export interface SignUpValues {
   email: string;
@@ -13,17 +13,13 @@ export interface SignUpValues {
 }
 
 export const useSignUpLogic = () => {
-  const { AuthRequest } = useAuthConnect();
   const { onAuthWithGoogleClick, onAuthWithFacebookClick } = useAuthLogic();
 
-  const onSubmit = useCallback(
-    async (payload: SignUpValues) => {
-      try {
-        return AuthRequest(payload, { ...META_THUNK, strategy: 'sign-up' });
-      } catch (error) {}
-    },
-    [AuthRequest],
-  );
+  const onSubmit = useAutoCallback(async (payload: SignUpValues) => {
+    try {
+      return signUpWithCredentials(payload);
+    } catch (error) {}
+  });
 
   return {
     onSubmit,
@@ -35,5 +31,5 @@ export const useSignUpLogic = () => {
 export const validationResolver = createValidationResolver({
   email: VALIDATION_STRATEGIES.email,
   password: VALIDATION_STRATEGIES.password,
-  // TODO add match password validation
+  confirmPassword: VALIDATION_STRATEGIES.confirmPassword,
 });

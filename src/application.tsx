@@ -7,6 +7,7 @@ import { AppQueryCacheProvider } from './components/query-cache-provider';
 import { AppTheme } from './app.constants';
 import { TranslationsProvider } from './translation-provider';
 import { Root } from './root';
+import { BrowserRouter } from 'react-router-dom';
 
 const jss = create({
   plugins: [jssTemplate(), ...jssPreset().plugins],
@@ -20,7 +21,9 @@ export const App = memo(() => {
         <CssBaseline />
         <AppQueryCacheProvider>
           <TranslationsProvider>
-            <Root />
+            <BrowserRouter>
+              <Root />
+            </BrowserRouter>
           </TranslationsProvider>
         </AppQueryCacheProvider>
       </StylesProvider>

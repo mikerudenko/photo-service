@@ -3,14 +3,15 @@ import { ROUTES } from '../app.constants';
 import { AppAuthButton } from '../components/app-auth-button';
 import { AppSubmitButton } from '../components/app-button/app-submit-button';
 import { AppCopyright } from '../components/app-copyright';
-import { AppForm } from '../components/app-form';
+import { AppForm } from '../components/app-form/app-form';
 import { AppLink } from '../components/app-link';
 import { AppLogo } from '../components/app-logo';
-import { FormField } from '../components/controls/form-field';
-import { globalMessages } from '../store/i18n';
+import { AppFormField } from '../components/app-form/app-form-field';
+import { globalMessages } from '../app-global.messages';
 import { signUpMessages } from './sign-up.messages';
 import { useSignUpLogic, validationResolver } from './use-sign-up-logic';
 import { useSignUpStyles } from './use-sign-up-styles';
+import { useIntl } from 'react-intl';
 
 export const SignUp = memo(() => {
   const {
@@ -19,34 +20,37 @@ export const SignUp = memo(() => {
     onSignUpWithFacebookClick,
   } = useSignUpLogic();
   const classes = useSignUpStyles();
-
+  const { formatMessage } = useIntl();
   return (
     <div className={classes.formWrapper}>
-      <AppLogo size='default' type='colored' />
+      <AppLogo />
       <AppForm
         onSubmit={onSubmit}
         className={classes.form}
-        formConfig={{ validationResolver }}
+        formConfig={{ resolver: validationResolver }}
       >
-        <FormField
+        <AppFormField
           name='email'
           type='email'
           required
-          label={globalMessages.email}
+          label={formatMessage(globalMessages.email)}
         />
-        <FormField
+        <AppFormField
           name='password'
           type='password'
           required
-          label={globalMessages.password}
+          label={formatMessage(globalMessages.password)}
         />
-        <FormField
+        <AppFormField
           name='confirmPassword'
           type='password'
           required
-          label={globalMessages.confirmPassword}
+          label={formatMessage(globalMessages.confirmPassword)}
         />
-        <AppSubmitButton color='primary' text={globalMessages.signUp} />
+        <AppSubmitButton
+          color='primary'
+          text={formatMessage(globalMessages.signUp)}
+        />
       </AppForm>
       <div className={classes.socialButtons}>
         <AppAuthButton onClick={onSignUpWithGoogleClick} type='google' />

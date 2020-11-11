@@ -21,4 +21,8 @@ export const validationServiceMessages = defineMessages({
     id: 'validation-service.invalid-phone',
     defaultMessage: 'Phone is invalid',
   },
+  passwordDidNotMatch: {
+    id: 'validation-service.password-did-not-match',
+    defaultMessage: 'Password did not match',
+  },
 });
