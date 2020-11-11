@@ -43,17 +43,23 @@ const deleteUnusedKeys = (englishLocale, currentLocale) => {
 
 runner((results) => {
   const englishLocale = JSON.parse(fs.readFileSync(`${outDir}/en.json`));
-  const deData = JSON.parse(fs.readFileSync(`${outDir}/de.json`));
+  const ruData = JSON.parse(fs.readFileSync(`${outDir}/ru.json`));
+  const uaData = JSON.parse(fs.readFileSync(`${outDir}/ua.json`));
 
   results.forEach((result) => {
     englishLocale[result.id] =
       result.defaultMessage || englishLocale[result.id] || '';
   });
 
-  const deLocale = deleteUnusedKeys(
+  const ruLocale = deleteUnusedKeys(
     englishLocale,
-    pasteEmptyKeys(deData, englishLocale),
+    pasteEmptyKeys(ruData, englishLocale),
   );
-  fs.writeFileSync(`${outDir}/de.json`, JSON.stringify(deLocale, null, 2));
+  const uaLocale = deleteUnusedKeys(
+    englishLocale,
+    pasteEmptyKeys(uaData, englishLocale),
+  );
+  fs.writeFileSync(`${outDir}/ru.json`, JSON.stringify(ruLocale, null, 2));
+  fs.writeFileSync(`${outDir}/ua.json`, JSON.stringify(uaLocale, null, 2));
   fs.writeFileSync(`${outDir}/en.json`, JSON.stringify(englishLocale, null, 2));
 });
