@@ -1,22 +1,19 @@
-import React, { memo } from 'react';
-import { useIntl } from 'react-intl';
 import Tooltip from '@material-ui/core/Tooltip';
 import c from 'classnames';
-import noop from 'lodash/noop';
-
+import { useAutoCallback } from 'hooks.macro';
+import React, { memo } from 'react';
+import { useIntl } from 'react-intl';
 import { LOCALE_SELECT_LIST } from '../../../../app.constants';
+import { useLocale } from '../../../../hooks/use-locale';
 import { useLanguageTalesListStyles } from './use-language-tale-list-styles';
 
 export const LanguageTaleList = memo(() => {
   const { formatMessage } = useIntl();
   const classes = useLanguageTalesListStyles();
-  // TODO add locale service
-  // const onLocaleClick = useCallback(
-  //   (event: any) => {
-  //     ChangeLocale(event.target.dataset.value);
-  //   },
-  //   [ChangeLocale],
-  // );
+  const { setLocale, locale } = useLocale();
+  const onLocaleClick = useAutoCallback((event: any) => {
+    setLocale(event.target.dataset.value);
+  });
 
   return (
     <div className={classes.tales}>
@@ -24,10 +21,10 @@ export const LanguageTaleList = memo(() => {
         <Tooltip title={formatMessage(label)} key={key}>
           <div
             className={c(classes.languageTale, {
-              [classes.selected]: 'en' === value,
+              [classes.selected]: locale === value,
             })}
             data-value={value}
-            onClick={noop}
+            onClick={onLocaleClick}
           >
             {value}
           </div>

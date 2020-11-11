@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { IntlProvider } from 'react-intl';
-import { getLocale } from '../services/intl-service';
-import { LOCALE, translationDictionary } from '../app.constants';
+import { useLocale } from '../hooks/use-locale';
+import { translationDictionary } from '../app.constants';
 
 export const TranslationsProvider = memo(({ children }) => {
-  const locale = getLocale() as LOCALE;
+  const { locale } = useLocale();
   return (
     <IntlProvider
       {...{

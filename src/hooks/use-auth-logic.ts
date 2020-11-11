@@ -1,8 +1,8 @@
 import { AUTH_PROVIDERS, signInWithProvider } from '../api';
-import { getLocale } from '../services/intl-service';
+import { useLocale } from '../hooks/use-locale';
 
 export const useAuthLogic = () => {
-  const locale = getLocale();
+  const { locale } = useLocale();
 
   const onAuthClick = (provider: AUTH_PROVIDERS) => () => {
     signInWithProvider({ locale, provider });
