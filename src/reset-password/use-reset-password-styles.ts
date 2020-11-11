@@ -23,6 +23,6 @@ export const useResetPasswordStyles = makeStyles((theme: Theme) =>
     resetLink: {
       textAlign: 'right',
       marginTop: theme.spacing(2),
-    }
+    },
   }),
 );
