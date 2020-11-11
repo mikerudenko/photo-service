@@ -1,4 +1,3 @@
-import { getCurrentUser } from '../api-auth/api.auth';
 import {
   getCallableFunction,
   firebaseStorage,
@@ -9,11 +8,10 @@ export const updateUserRequest = getCallableFunction('updateUser');
 export const getManagersRequest = () =>
   firebaseFirestore.collection('users').where('role', '==', 'manager').get();
 
-export const updateUserAvatar = async (avatar: File) => {
-  const uid = getCurrentUser()?.uid;
+export const useUpdateUserAvatar = async (avatar: File, user: any) => {
   const avatarRef = firebaseStorage
     .ref()
-    .child(`users/${uid}/avatar.${avatar.name.split('.').pop()}`);
+    .child(`users/${user.uid}/avatar.${avatar.name.split('.').pop()}`);
   await avatarRef.put(avatar);
   return avatarRef.getDownloadURL();
 };

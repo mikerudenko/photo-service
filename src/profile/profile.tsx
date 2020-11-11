@@ -1,11 +1,7 @@
 import React, { memo } from 'react';
-import { useGetUser, USER_ROLES, useGetUserRole } from '../api';
-import { useAutoEffect } from 'hooks.macro';
-import { useHistory } from 'react-router-dom';
-
+import { useGetUser, USER_ROLES } from '../api';
 import { UserProfile } from '../user-profile';
 import { AdminProfile } from '../admin-profile';
-import { ROUTES } from '../app.constants';
 
 const profilePages: Record<string, any> = {
   [USER_ROLES.admin]: AdminProfile,
@@ -13,18 +9,10 @@ const profilePages: Record<string, any> = {
 };
 
 export const Profile = memo(() => {
-  const { user } = useGetUser();
-  const { role } = useGetUserRole(user);
-  const ProfilePage = profilePages[role];
-  const history = useHistory();
+  const user = useGetUser();
+  const ProfilePage = profilePages[user?.role];
 
-  useAutoEffect(() => {
-    if (user && !role) {
-      history.push(ROUTES.root);
-    }
-  });
-
-  if (!role) {
+  if (!user) {
     return null;
   }
 

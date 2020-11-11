@@ -1,5 +1,4 @@
 import { useAutoCallback } from 'hooks.macro';
-// import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { signInWithCredentials } from '../api';
 import { authMessages } from '../api/api-auth/api-auth.messages';

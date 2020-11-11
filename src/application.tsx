@@ -8,6 +8,7 @@ import { AppTheme } from './app.constants';
 import { TranslationsProvider } from './translation-provider';
 import { Root } from './root';
 import { BrowserRouter } from 'react-router-dom';
+import { FirebaseAppProvider } from 'reactfire';
 
 const jss = create({
   plugins: [jssTemplate(), ...jssPreset().plugins],

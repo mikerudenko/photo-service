@@ -1,16 +1,23 @@
 import get from 'lodash/get';
 
-import { signOut, useGetUser, useGetUserRole } from '../../../api';
+import { useSignOut, useGetUser } from '../../../api';
+import { useHistory } from 'react-router';
+import { useAutoCallback } from 'hooks.macro';
+import { ROUTES } from '../../../app.constants';
 
 export const useAppHeaderLogic = () => {
-  const { user, userLoading } = useGetUser();
-  const { role } = useGetUserRole(user);
+  const user = useGetUser();
+  const history = useHistory();
+  const signOut = useSignOut();
+
+  const onSignOutClick = useAutoCallback(async () => {
+    await signOut();
+    history.push(ROUTES.root);
+  });
 
   return {
-    onSignOutClick: signOut,
-    role,
+    onSignOutClick,
     user,
-    userLoading,
     photoURL: get(user, 'photoURL') || '',
   };
 };

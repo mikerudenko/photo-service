@@ -1,7 +1,8 @@
-import { RESOURCE_MAP } from 'api/api.constants';
 import firebase from 'firebase';
+import { useAutoEffect } from 'hooks.macro';
 import get from 'lodash/get';
-import { useQuery } from 'react-query';
+import { useState } from 'react';
+import { useMutation } from 'react-query';
 import { firebaseAuth } from '../../services/firebase-service';
 import {
   AUTH_PROVIDERS,
@@ -26,8 +27,6 @@ export const signInWithCredentials = ({
 }: CredentialsPayload) =>
   firebaseAuth.signInWithEmailAndPassword(email, password);
 
-export const signOut = () => firebaseAuth.signOut();
-
 export const signInWithProvider = async ({
   locale,
   provider,
@@ -37,7 +36,7 @@ export const signInWithProvider = async ({
   return firebaseAuth.signInWithPopup(providerInstance);
 };
 
-export const getUserRole = async (_: string, user: any | null) => {
+export const getUserRole = async (user: any | null) => {
   let token;
   if (user) {
     token = await user.getIdTokenResult();
@@ -47,8 +46,6 @@ export const getUserRole = async (_: string, user: any | null) => {
 
   return await get(token, 'claims.role', null);
 };
-
-export const getCurrentUser = () => firebase.auth().currentUser;
 
 export const setLocalPersistence = () =>
   firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
@@ -60,29 +57,18 @@ export const setLocale = (locale: string) =>
   (firebaseAuth.languageCode = locale);
 
 export const useGetUser = () => {
-  const { data, error, isLoading, isFetched } = useQuery(
-    [RESOURCE_MAP.user],
-    getCurrentUser,
-  );
-
-  return {
-    user: data,
-    isFetched,
-    userLoading: isLoading,
-    userError: error,
-  };
+  const [user, setUser] = useState<any>(null);
+  useAutoEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        const role = await getUserRole(user);
+        setUser({ ...user, role });
+      } else {
+        setUser(user);
+      }
+    });
+  });
+  return user;
 };
 
-export const useGetUserRole = (user: any | null) => {
-  const { data, error, isLoading, isFetched } = useQuery(
-    [RESOURCE_MAP.user, user?.id],
-    getUserRole,
-  );
-
-  return {
-    role: data,
-    isFetched,
-    roleLoading: isLoading,
-    roleError: error,
-  };
-};
+export const useSignOut = () => useMutation(() => firebaseAuth.signOut())[0];
