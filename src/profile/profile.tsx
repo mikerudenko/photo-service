@@ -10,7 +10,7 @@ const profilePages: Record<string, any> = {
 
 export const Profile = memo(() => {
   const user = useGetUser();
-  const ProfilePage = profilePages[user?.role];
+  const ProfilePage = profilePages[user?.role || 'user'];
 
   if (!user) {
     return null;

@@ -22,7 +22,7 @@ export const onUserCreate = functions.auth.user().onCreate(async (user) => {
 
     await updateUserInFirestore(user.uid, { role, email, photoURL });
   } catch (error) {
-    console.log('BookLake: error on user create:', error);
+    console.log('PhotoService: error on user create:', error);
   }
 });
 
@@ -30,7 +30,7 @@ export const updateUser = functions.https.onCall(async (data: any, context) => {
   const currentUid = context.auth.uid;
 
   if (currentUid !== data.uid) {
-    console.error('BookLake: UID is not the same then in auth');
+    console.error('PhotoService: UID is not the same then in auth');
     return;
   }
 
@@ -45,6 +45,6 @@ export const updateUser = functions.https.onCall(async (data: any, context) => {
       admin.auth().updateUser(uid, payload),
     ]);
   } catch (error) {
-    console.log('BookLake: error on user update :', error);
+    console.log('PhotoService: error on user update :', error);
   }
 });

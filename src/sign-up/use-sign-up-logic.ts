@@ -5,6 +5,8 @@ import {
 } from '../services/validation-service';
 import { signUpWithCredentials } from '../api';
 import { useAuthLogic } from '../hooks/use-auth-logic';
+import { useHistory } from 'react-router';
+import { ROUTES } from '../app.constants';
 
 export interface SignUpValues {
   email: string;
@@ -14,10 +16,12 @@ export interface SignUpValues {
 
 export const useSignUpLogic = () => {
   const { onAuthWithGoogleClick, onAuthWithFacebookClick } = useAuthLogic();
+  const history = useHistory();
 
   const onSubmit = useAutoCallback(async (payload: SignUpValues) => {
     try {
-      return signUpWithCredentials(payload);
+      await signUpWithCredentials(payload);
+      history.push(ROUTES.profile);
     } catch (error) {}
   });
 
