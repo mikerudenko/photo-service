@@ -1,8 +1,22 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+
+    function isAdmin() {
+      return request.auth.token.role == 'admin'
+    }
+
+    function isUser() {
+      return request.auth.token.role == 'user'
+    }
+
+    match /users/{userId} {
+      allow create, updata, delete :if isAdmin() || request.auth == null && request.resource.data.role == "user";
+      allow get, list: if isAdmin()
+    }
+
+    match /rbac/{allPaths=**} {
+      allow delete, write, update, get, list: if isAdmin();
     }
   }
 }
