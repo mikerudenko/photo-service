@@ -12,5 +12,10 @@ export const useAppContainerStyles = makeStyles((theme: Theme) =>
       },
       minHeight: '100vh',
     },
+    containerContent: {
+      flexGrow: 1,
+      display: 'flex',
+      flexDirection: 'column',
+    },
   }),
 );

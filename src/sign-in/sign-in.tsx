@@ -62,6 +62,7 @@ export const SignIn = memo(() => {
         <AppLink
           variant='body2'
           to={ROUTES.signUp}
+          className={classes.signUpLink}
           text={signInMessages.signUpLink}
         />
       </div>

@@ -12,11 +12,20 @@ service cloud.firestore {
 
     match /users/{userId} {
       allow create, updata, delete :if isAdmin() || request.auth == null && request.resource.data.role == "user";
-      allow get, list: if isAdmin()
+      allow get, list: if isAdmin();
     }
 
     match /rbac/{allPaths=**} {
       allow delete, write, update, get, list: if isAdmin();
+    }
+
+    match /orders/{order} {
+       allow list, delete, write, update: if isAdmin();
+       allow get: if true;
+    }
+    match /photographs/{photographs} {
+       allow get, list: if true;
+       allow delete, write, update: if isAdmin();
     }
   }
 }

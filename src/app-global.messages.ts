@@ -61,4 +61,60 @@ export const globalMessages = defineMessages({
     id: 'app.sign-uo',
     defaultMessage: 'Sign Up',
   },
+  photographs: {
+    id: 'app.photographs',
+    defaultMessage: 'Photographs',
+  },
+  orders: {
+    id: 'app.orders',
+    defaultMessage: 'Orders',
+  },
+  createPhotograph: {
+    id: 'app.create-photograph',
+    defaultMessage: 'Create photograph',
+  },
+  name: {
+    id: 'app.name',
+    defaultMessage: 'Name',
+  },
+  id: {
+    id: 'app.id',
+    defaultMessage: 'ID',
+  },
+  price: {
+    id: 'app.price',
+    defaultMessage: 'Price',
+  },
+  photoType: {
+    id: 'app.photoType',
+    defaultMessage: 'Photo type',
+  },
+  fee: {
+    id: 'app.fee',
+    defaultMessage: 'Fee',
+  },
+  date: {
+    id: 'app.date',
+    defaultMessage: 'Date',
+  },
+  user: {
+    id: 'app.user',
+    defaultMessage: 'User',
+  },
+  photograph: {
+    id: 'app.photograph',
+    defaultMessage: 'Photograph',
+  },
+  create: {
+    id: 'app.create',
+    defaultMessage: 'Create',
+  },
+  edit: {
+    id: 'app.edit',
+    defaultMessage: 'Edit',
+  },
+  update: {
+    id: 'app.update',
+    defaultMessage: 'Update',
+  },
 });

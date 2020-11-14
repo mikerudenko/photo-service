@@ -41,5 +41,8 @@ export const useSignInStyles = makeStyles((theme: Theme) =>
       width: '100%',
       marginTop: theme.spacing(4),
     },
+    signUpLink: {
+      textAlign: 'right',
+    },
   }),
 );

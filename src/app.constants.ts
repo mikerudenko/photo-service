@@ -18,6 +18,7 @@ export enum ROUTES {
   signIn = '/sign-in',
   signUp = '/sign-up',
   resetPassword = '/reset-password',
+  all = '/all',
 
   // User profile routers
   profile = '/profile',
@@ -35,6 +36,8 @@ export enum ROUTES {
   payment = '/payment',
   partners = '/partners',
   root = '/',
+  edit = '/edit',
+  create = '/create',
 }
 
 export const FLEX_CENTER_BETWEEN = {

@@ -5,18 +5,18 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { AppIconButton } from '../app-icon-button';
 import { useIOActionMenuStyles } from './use-io-action-menu-styles';
 
-type IOActionMenuItem = {
+type AppActionMenuItem = {
   label: string;
   onClick(): void;
 };
 
-type IOActionMenuProps = {
-  items: IOActionMenuItem[];
+type AppActionMenuProps = {
+  items: AppActionMenuItem[];
   initialState?: boolean;
 };
 
-export const IOActionMenu = memo(
-  ({ items, initialState = false }: IOActionMenuProps) => {
+export const AppActionMenu = memo(
+  ({ items, initialState = false }: AppActionMenuProps) => {
     const classes = useIOActionMenuStyles();
     const [openedMenu, setMenuOpen, closeMenu] = useBooleanState(initialState);
 

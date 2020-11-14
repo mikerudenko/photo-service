@@ -4,6 +4,7 @@ import { AppHeader } from './app-header';
 import { useAppContainerStyles } from './use-app-container-styles';
 import { AppFooter } from './app-footer';
 import Container from '@material-ui/core/Container';
+import c from 'classnames';
 
 type AppContainerProps = {
   showFooter?: boolean;
@@ -26,7 +27,10 @@ export const AppContainer = memo(
         {hasCustomContainer ? (
           children
         ) : (
-          <Container maxWidth='lg' className={containerClass}>
+          <Container
+            maxWidth='lg'
+            className={c(containerClass, classes.containerContent)}
+          >
             {children}
           </Container>
         )}

@@ -10,6 +10,7 @@ export type AppRouterTabItem = {
   label: string;
   to: string;
   component: Component<any> | FC<any>;
+  exact?: boolean;
   componentProps?: Record<string, any>;
 };
 
@@ -39,9 +40,10 @@ export const AppRouterTabs = ({
   });
 
   const renderRoute = useAutoCallback(
-    ({ to, component: Component, componentProps }, index) => (
+    ({ to, component: Component, componentProps, exact }, index) => (
       <Route
         path={to}
+        exact={exact}
         component={() => <Component {...componentProps} />}
         key={index}
       />

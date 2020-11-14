@@ -23,6 +23,7 @@ export const useIOActionMenuStyles = makeStyles((theme: any) => ({
     background: 'white',
   },
   actionMenuItem: {
+    cursor: 'pointer',
     '&:not(:last-child)': {
       borderBottom: `1px solid grey`,
       paddingBottom: 14,

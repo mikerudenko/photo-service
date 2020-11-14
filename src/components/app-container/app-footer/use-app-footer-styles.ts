@@ -3,7 +3,6 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 export const useAppFooterStyles = makeStyles((theme: Theme) =>
   createStyles({
     footer: {
-      paddingTop: 64,
       marginTop: 'auto',
     },
     mainSectionWrapper: {
