@@ -4,13 +4,13 @@ import { useAutoCallback } from 'hooks.macro';
 import React, { memo } from 'react';
 import { useIntl } from 'react-intl';
 import { LOCALE_SELECT_LIST } from '../../../../app.constants';
-import { useLocale } from '../../../../hooks/use-locale';
+import { useRootContext } from '../../../../root/root.context';
 import { useLanguageTalesListStyles } from './use-language-tale-list-styles';
 
 export const LanguageTaleList = memo(() => {
   const { formatMessage } = useIntl();
   const classes = useLanguageTalesListStyles();
-  const { setLocale, locale } = useLocale();
+  const { setLocale, locale } = useRootContext();
   const onLocaleClick = useAutoCallback((event: any) => {
     setLocale(event.target.dataset.value);
   });

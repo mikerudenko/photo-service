@@ -117,4 +117,36 @@ export const globalMessages = defineMessages({
     id: 'app.update',
     defaultMessage: 'Update',
   },
+  status: {
+    id: 'app.status',
+    defaultMessage: 'Status',
+  },
+  payed: {
+    id: 'app.payed',
+    defaultMessage: 'Payed',
+  },
+  verified: {
+    id: 'app.verified',
+    defaultMessage: 'Verified',
+  },
+  completed: {
+    id: 'app.completed',
+    defaultMessage: 'Completed',
+  },
+  rejected: {
+    id: 'app.rejected',
+    defaultMessage: 'Rejected',
+  },
+  archive: {
+    id: 'app.archive',
+    defaultMessage: 'Archive',
+  },
+  verifiedOrders: {
+    id: 'app.verified-orders',
+    defaultMessage: 'Verified orders',
+  },
+  rejectedOrders: {
+    id: 'app.rejected-orders',
+    defaultMessage: 'Rejected orders',
+  },
 });

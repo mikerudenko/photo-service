@@ -13,13 +13,26 @@ import { ResetPassword } from '../reset-password';
 import { SignIn } from '../sign-in';
 import { SignUp } from '../sign-up';
 import { useOnlineStatus } from '../hooks/use-online-status';
+import { useLocale } from './use-locale';
+import { RootContext } from './root.context';
+import { TranslationsProvider } from '../translation-provider';
+import uaLocale from 'date-fns/locale/uk';
+import enLocale from 'date-fns/locale/en-US';
+import ruLocale from 'date-fns/locale/ru';
 
 import { useRootStyles } from './use-root-styles';
 import { StartPage } from '../start-page';
 
+const localeMap = {
+  en: enLocale,
+  ua: uaLocale,
+  ru: ruLocale,
+};
+
 export const Root = memo(() => {
   const onlineStatus = useOnlineStatus();
   const location = useLocation();
+  const { locale, setLocale } = useLocale();
 
   useRootStyles();
 
@@ -32,21 +45,28 @@ export const Root = memo(() => {
   }
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={'ua'}>
-      <Switch>
-        <Route path={ROUTES.signIn} component={SignIn} />
-        <Route path={ROUTES.resetPassword} component={ResetPassword} />
-        <Route path={ROUTES.signUp} component={SignUp} />
-        <Route path={ROUTES.profile} component={Profile} />
-        <Route path={ROUTES.notFound} component={NotFound} />
-        <Route path={ROUTES.photographs} component={PhotographsGrid} />
-        <Route
-          path={`${ROUTES.photographs}/:id`}
-          component={PhotographDetails}
-        />
-        <Route path={ROUTES.root} exact component={StartPage} />
-        <Redirect to={ROUTES.notFound} />
-      </Switch>
-    </MuiPickersUtilsProvider>
+    <RootContext.Provider value={{ locale, setLocale }}>
+      <TranslationsProvider>
+        <MuiPickersUtilsProvider
+          utils={DateFnsUtils}
+          locale={localeMap[locale]}
+        >
+          <Switch>
+            <Route path={ROUTES.signIn} component={SignIn} />
+            <Route path={ROUTES.resetPassword} component={ResetPassword} />
+            <Route path={ROUTES.signUp} component={SignUp} />
+            <Route path={ROUTES.profile} component={Profile} />
+            <Route path={ROUTES.notFound} component={NotFound} />
+            <Route path={ROUTES.photographs} component={PhotographsGrid} />
+            <Route
+              path={`${ROUTES.photographs}/:id`}
+              component={PhotographDetails}
+            />
+            <Route path={ROUTES.root} exact component={StartPage} />
+            <Redirect to={ROUTES.notFound} />
+          </Switch>
+        </MuiPickersUtilsProvider>{' '}
+      </TranslationsProvider>
+    </RootContext.Provider>
   );
 });

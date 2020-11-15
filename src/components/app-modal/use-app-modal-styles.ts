@@ -10,7 +10,7 @@ export const useAppModalStyles = makeStyles({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     minWidth: 420,
-    padding: 25,
+    padding: 40,
     boxSizing: 'border-box',
     border: 'none',
     outline: 'none',

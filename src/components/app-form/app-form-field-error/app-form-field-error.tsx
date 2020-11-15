@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 
 export type AppFormFieldErrorProps = {
   showError: boolean;
-  error: MessageDescriptor | string;
+  error?: MessageDescriptor | string;
   className?: string;
 };
 

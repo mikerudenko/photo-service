@@ -18,11 +18,8 @@ export type AppFieldTextProps = {
 
 export const AppFormTextField = memo(
   ({ name, type, label, multiline, rows }: AppFieldTextProps) => {
-    const {
-      register,
-      errors,
-      formState: { isDirty },
-    } = useFormContext();
+    const { register, errors, formState } = useFormContext();
+    const { isDirty } = formState;
     const classes = useAppFormTextFieldStyles();
     const { showError, error } = hasError({ errors, name, isDirty });
 

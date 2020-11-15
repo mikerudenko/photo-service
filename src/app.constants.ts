@@ -38,6 +38,10 @@ export enum ROUTES {
   root = '/',
   edit = '/edit',
   create = '/create',
+  payed = '/payed',
+  completed = '/completed',
+  verified = '/verified',
+  rejected = '/rejected',
 }
 
 export const FLEX_CENTER_BETWEEN = {
@@ -109,3 +113,5 @@ function prepareMessages(
     ...messages,
   };
 }
+
+export const DATE_MASK = 'dd/MM/yyyy';

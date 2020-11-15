@@ -1,13 +1,12 @@
-import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
-import React, { memo } from 'react';
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import { jssPreset, StylesProvider } from '@material-ui/styles';
 import { create } from 'jss';
 import jssTemplate from 'jss-plugin-template';
-import { AppQueryCacheProvider } from './components/query-cache-provider';
-import { AppTheme } from './app.constants';
-import { TranslationsProvider } from './translation-provider';
-import { Root } from './root';
+import React, { memo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { AppTheme } from './app.constants';
+import { AppQueryCacheProvider } from './components/query-cache-provider';
+import { Root } from './root';
 
 const jss = create({
   plugins: [jssTemplate(), ...jssPreset().plugins],
@@ -20,11 +19,9 @@ export const App = memo(() => {
       <StylesProvider jss={jss}>
         <CssBaseline />
         <AppQueryCacheProvider>
-          <TranslationsProvider>
-            <BrowserRouter>
-              <Root />
-            </BrowserRouter>
-          </TranslationsProvider>
+          <BrowserRouter>
+            <Root />
+          </BrowserRouter>
         </AppQueryCacheProvider>
       </StylesProvider>
     </ThemeProvider>

@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { IntlProvider } from 'react-intl';
-import { useLocale } from '../hooks/use-locale';
+import { useRootContext } from '../root/root.context';
 import { translationDictionary } from '../app.constants';
 
 export const TranslationsProvider = memo(({ children }) => {
-  const { locale } = useLocale();
+  const { locale } = useRootContext();
   return (
     <IntlProvider
       {...{

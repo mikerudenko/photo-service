@@ -5,6 +5,7 @@ export enum OrderStatus {
   payed = 'payed',
   verified = 'verified',
   completed = 'completed',
+  rejected = 'rejected',
 }
 
 export type OrderPhotographInfo = {
@@ -20,3 +21,7 @@ export type Order = {
   status: OrderStatus;
   user: User;
 };
+
+export type OrderParams = Partial<{
+  status: OrderStatus;
+}>;
