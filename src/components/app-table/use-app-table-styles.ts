@@ -10,7 +10,6 @@ export const useIOTableStyles = makeStyles((theme: any) => ({
     tableLayout: 'fixed',
   },
   table: {
-    color: theme.palette.primary.main,
     borderCollapse: 'collapse',
     minWidth: '100%',
   },
@@ -50,6 +49,7 @@ export const useIOTableStyles = makeStyles((theme: any) => ({
     padding: 15,
     textAlign: 'left',
     minWidth: '120px',
+    color: theme.darkGrey,
   },
   emptyCell: {
     height: 50,

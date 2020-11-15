@@ -59,11 +59,18 @@ export const FLEX_CENTER_START = {
 export const AppTheme = {
   palette: {
     primary: {
-      main: '#2690A8',
+      main: '#FFD159',
     },
     secondary: {
-      main: '#FF6927',
+      main: '#AD7EBC',
+      light: '#F1EBF5',
     },
+  },
+  darkGrey: '#AEA8B3',
+  error: '#DC7603',
+  fontFamily: "'Merriweather Sans', sans-serif",
+  shadow: {
+    main: '0px 14px 23px rgba(28, 37, 44, 0.08)',
   },
   alert: {
     error: {

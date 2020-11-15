@@ -1,7 +1,8 @@
-import Typography from '@material-ui/core/Typography';
-import React, { memo } from 'react';
-import type { ReactNode } from 'react';
 import noop from 'lodash/noop';
+import type { ReactNode } from 'react';
+import c from 'classnames';
+import React, { memo } from 'react';
+import { useAppTypographyStyles } from './use-app-typography-styles';
 
 export type PProps = {
   children: ReactNode;
@@ -10,9 +11,11 @@ export type PProps = {
 };
 
 export const P = memo(({ children, onClick = noop, className }: PProps) => {
+  const classes = useAppTypographyStyles();
+
   return (
-    <Typography variant='subtitle1' onClick={onClick} className={className}>
+    <p onClick={onClick} className={c(classes.p, className)}>
       {children}
-    </Typography>
+    </p>
   );
 });

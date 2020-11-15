@@ -7,7 +7,7 @@ export const useAppFooterStyles = makeStyles((theme: Theme) =>
     },
     mainSectionWrapper: {
       paddingTop: '15px',
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
       paddingBottom: '15px',
       [theme.breakpoints.down('sm')]: {
         paddingTop: '20px',
@@ -62,15 +62,12 @@ export const useAppFooterStyles = makeStyles((theme: Theme) =>
     copyright: {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    copyrightWrapper: {
-      backgroundColor: 'rgba(38, 144, 168, 0.2)',
-      paddingTop: '10px',
+      justifyContent: 'flex-end',
     },
     copyrightText: {
       fontSize: '14px',
-      color: '#141414',
+      color: 'white',
+      marginRight: 20,
     },
     footerLogoWrapper: {
       display: 'flex',

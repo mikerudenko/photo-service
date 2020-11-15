@@ -1,11 +1,13 @@
-import React, { memo, useCallback } from 'react';
+import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import FormControl from '@material-ui/core/FormControl';
-
-import { AppSelectProps, AppSelectOptionType } from './app-select.types';
-import { useAppSelectStyles } from './use-app-select-styles';
+import { useAutoCallback } from 'hooks.macro';
+import React, { memo } from 'react';
+import { Controller } from 'react-hook-form';
 import { AppFormFieldError } from '../app-form-field-error';
+import { useIntl } from 'react-intl';
+import { AppSelectOptionType, AppSelectProps } from './app-select.types';
+import { useAppSelectStyles } from './use-app-select-styles';
 
 export const AppSelectMultiple = memo(
   ({
@@ -14,32 +16,50 @@ export const AppSelectMultiple = memo(
     showError = false,
     error,
     label,
-    labelValues,
     name,
     value,
+    control,
   }: AppSelectProps) => {
+    const { formatMessage } = useIntl();
     const classes = useAppSelectStyles();
+    const getOptionTitle = useAutoCallback(({ label }: AppSelectOptionType) => {
+      if (label) {
+        return typeof label === 'string' ? label : formatMessage(label);
+      }
+    });
 
-    const getOptionTitle = useCallback(
-      ({ label }: AppSelectOptionType) => label,
-      [],
-    );
-
-    const selectedValue = options.filter(({ value: v }) =>
-      (value as string[]).includes(v),
-    ) as any;
+    const selectedValue = options.filter(({ value: v }) => {
+      return (value as string[])?.includes(v) || false;
+    });
 
     return (
       <FormControl error={showError} className={classes.formControl}>
-        <Autocomplete
-          {...({ onChange, name, options } as any)}
-          multiple
-          value={selectedValue as any}
-          filterSelectedOptions
-          getOptionLabel={getOptionTitle}
-          className={classes.multiSelect}
-          renderInput={(params) => (
-            <TextField {...params} variant='outlined' label={label} fullWidth />
+        <Controller
+          control={control}
+          name={name}
+          defaultValue={selectedValue}
+          onChange={onChange}
+          render={({ onChange, ...props }: any) => (
+            <Autocomplete
+              {...({ name, options, ...props } as any)}
+              multiple
+              onChange={(e, data) => {
+                onChange(data);
+              }}
+              // value={value}
+              filterSelectedOptions
+              getOptionLabel={getOptionTitle}
+              className={classes.multiSelect}
+              label={label}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  variant='outlined'
+                  label={label}
+                  fullWidth
+                />
+              )}
+            />
           )}
         />
         <AppFormFieldError {...{ showError, error }} />

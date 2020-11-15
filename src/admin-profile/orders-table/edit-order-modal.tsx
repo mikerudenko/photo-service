@@ -1,7 +1,12 @@
-import { useAutoCallback, useAutoMemo } from 'hooks.macro';
+import { useAutoCallback } from 'hooks.macro';
 import React, { memo } from 'react';
 import { useIntl } from 'react-intl';
-import { Order, OrderStatus, useUpdateOrder } from '../../api';
+import {
+  Order,
+  OrderStatus,
+  useUpdateOrder,
+  ORDER_STATUS_SELECT_LIST,
+} from '../../api';
 import { globalMessages } from '../../app-global.messages';
 import { AppSubmitButton } from '../../components/app-button/app-submit-button';
 import { AppForm, AppFormField } from '../../components/app-form';
@@ -32,25 +37,6 @@ export const EditOrderModal = memo(
       closeEditModal();
     });
 
-    const orderStatusOptions = useAutoMemo(() => [
-      {
-        value: OrderStatus.payed,
-        label: formatMessage(globalMessages.payed),
-      },
-      {
-        value: OrderStatus.verified,
-        label: formatMessage(globalMessages.verified),
-      },
-      {
-        value: OrderStatus.completed,
-        label: formatMessage(globalMessages.completed),
-      },
-      {
-        value: OrderStatus.rejected,
-        label: formatMessage(globalMessages.rejected),
-      },
-    ]);
-
     return (
       <AppModal
         onClose={closeEditModal}
@@ -67,7 +53,7 @@ export const EditOrderModal = memo(
               name='status'
               type='select'
               required
-              options={orderStatusOptions}
+              options={ORDER_STATUS_SELECT_LIST}
               label={formatMessage(globalMessages.status)}
             />
             <AppSubmitButton

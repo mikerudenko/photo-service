@@ -1,5 +1,6 @@
 import { PhotographPrice } from '../api-photograph';
 import { User } from '../api-auth';
+import { globalMessages } from '../../app-global.messages';
 
 export enum OrderStatus {
   payed = 'payed',
@@ -25,3 +26,22 @@ export type Order = {
 export type OrderParams = Partial<{
   status: OrderStatus;
 }>;
+
+export const ORDER_STATUS_SELECT_LIST = [
+  {
+    value: OrderStatus.payed,
+    label: globalMessages.payed,
+  },
+  {
+    value: OrderStatus.verified,
+    label: globalMessages.verified,
+  },
+  {
+    value: OrderStatus.completed,
+    label: globalMessages.completed,
+  },
+  {
+    value: OrderStatus.rejected,
+    label: globalMessages.rejected,
+  },
+];

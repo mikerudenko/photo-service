@@ -11,6 +11,7 @@ import { Root } from './root';
 const jss = create({
   plugins: [jssTemplate(), ...jssPreset().plugins],
 });
+// @ts-ignore
 const theme = createMuiTheme(AppTheme);
 
 export const App = memo(() => {

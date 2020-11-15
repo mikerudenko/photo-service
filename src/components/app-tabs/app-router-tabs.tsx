@@ -31,7 +31,7 @@ export const AppRouterTabs = ({
   const [activeTab, setActiveTab] = useState(0);
 
   useAutoLayoutEffect(() => {
-    let tabIndex = tabs.findIndex(({ to }) => pathname.startsWith(to));
+    let tabIndex = tabs.findIndex(({ to }) => pathname === to);
     if (tabIndex === -1) {
       tabIndex = 0;
     }

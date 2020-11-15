@@ -6,10 +6,6 @@ export const useAppContainerStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      paddingTop: 65,
-      [theme.breakpoints.down('sm')]: {
-        paddingTop: 55,
-      },
       minHeight: '100vh',
     },
     containerContent: {

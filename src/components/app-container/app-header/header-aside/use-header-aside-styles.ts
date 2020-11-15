@@ -37,7 +37,7 @@ export const useHeaderAsideStyles = makeStyles((theme: Theme) => {
     activeLink: activeSidebarLink,
     sidebar: {
       width: 280,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
     },
     closeAsideButton: {
       color: 'white',

@@ -14,6 +14,7 @@ import { SocialSection } from '../../../social-section';
 import { LanguageTaleList } from '../language-tale-list';
 import { useHeaderAsideStyles } from './use-header-aside-styles';
 import { useBooleanState } from '../../../../hooks';
+import { P } from '../../../../components/app-typography';
 
 const sidebarMenuLis = [
   {
@@ -65,7 +66,7 @@ export const HeaderAside = memo(() => {
             className={classes.sidebarLink}
             activeClassName={classes.activeLink}
           >
-            {formatMessage(message)}
+            <P>{formatMessage(message)}</P>
           </NavLink>
         ))}
       </div>

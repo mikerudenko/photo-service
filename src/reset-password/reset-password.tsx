@@ -6,6 +6,7 @@ import { AppCopyright } from '../components/app-copyright';
 import { AppFormField } from '../components/app-form';
 import { AppForm } from '../components/app-form/app-form';
 import { AppLink } from '../components/app-link';
+import { AppTile } from '../components/app-tile';
 import { AppLogo } from '../components/app-logo';
 import { resetPasswordMessages } from './reset-password.messages';
 import {
@@ -21,7 +22,7 @@ export const ResetPassword = memo(() => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className={classes.formWrapper}>
+    <AppTile className={classes.formWrapper}>
       <AppLogo />
       <AppForm
         onSubmit={onSubmit}
@@ -32,21 +33,17 @@ export const ResetPassword = memo(() => {
           name='email'
           type='email'
           required
-          label={formatMessage(globalMessages.email)}
+          placeholder={formatMessage(globalMessages.email)}
         />
         <AppSubmitButton
           color='primary'
           text={formatMessage(resetPasswordMessages.resetPassword)}
         />
       </AppForm>
-
-      <AppLink
-        variant='body2'
-        to={ROUTES.signIn}
-        className={classes.resetLink}
-        text={formatMessage(resetPasswordMessages.backToSignIn)}
-      />
+      <AppLink to={ROUTES.signIn} className={classes.resetLink}>
+        {formatMessage(resetPasswordMessages.backToSignIn)}
+      </AppLink>
       <AppCopyright />
-    </div>
+    </AppTile>
   );
 });

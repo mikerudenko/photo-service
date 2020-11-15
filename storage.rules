@@ -14,6 +14,10 @@ service firebase.storage {
       allow get: if true;
     }
 
+    match /photographs/{allPaths=**} {
+      allow delete, write, update, get, list: if isAdmin();
+    }
+
     match /internal/{allPaths=**} {
       allow delete, write, update, get, list: if isAdmin();
     }

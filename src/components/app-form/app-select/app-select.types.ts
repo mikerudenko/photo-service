@@ -1,13 +1,14 @@
 import { ChangeEvent, ReactNode } from 'react';
+import { MessageDescriptor } from 'react-intl';
 
 export type AppSelectOptionType = {
   value: string;
-  label: string;
+  label: string | MessageDescriptor;
 };
 
 export type AppSelectProps = {
   name: string;
-  label: string;
+  label: string | MessageDescriptor;
   options: AppSelectOptionType[];
   labelValues?: Record<number | string, any>;
   required?: boolean;
@@ -21,4 +22,5 @@ export type AppSelectProps = {
   register?: any;
   value?: string | number | string[];
   control?: any;
+  multiple?: boolean;
 };

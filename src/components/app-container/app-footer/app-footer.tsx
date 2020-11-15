@@ -50,18 +50,16 @@ export const AppFooter = memo(() => {
             <Grid item xs={12} md={3} className={classes.rightFooterSection}>
               <SocialSection />
             </Grid>
+            <Grid item xs={12} className={classes.copyright}>
+              <p className={classes.copyrightText}>
+                {formatMessage(appFooterMessages.copyright)}
+              </p>
+              <div className={classes.cardSponsors}>
+                <img src={LogoMasterCard} alt='MasterCard' />
+                <img src={LogoVisa} alt='Visa' />
+              </div>
+            </Grid>
           </Grid>
-        </Container>
-      </div>
-      <div className={classes.copyrightWrapper}>
-        <Container maxWidth='lg' className={classes.copyright}>
-          <p className={classes.copyrightText}>
-            {formatMessage(appFooterMessages.copyright)}
-          </p>
-          <div className={classes.cardSponsors}>
-            <img src={LogoMasterCard} alt='MasterCard' />
-            <img src={LogoVisa} alt='Visa' />
-          </div>
         </Container>
       </div>
     </footer>

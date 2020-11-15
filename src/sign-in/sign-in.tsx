@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { ROUTES } from '../app.constants';
 import { AppAuthButton } from '../components/app-auth-button';
 import { AppSubmitButton } from '../components/app-button/app-submit-button';
+import { AppTile } from '../components/app-tile';
 import { AppCopyright } from '../components/app-copyright';
 import { AppForm } from '../components/app-form/app-form';
 import { AppLink } from '../components/app-link';
@@ -24,7 +25,7 @@ export const SignIn = memo(() => {
   const { formatMessage } = useIntl();
 
   return (
-    <div className={classes.formWrapper}>
+    <AppTile className={classes.formWrapper}>
       <AppLogo />
       <AppForm
         onSubmit={onSubmit}
@@ -35,38 +36,32 @@ export const SignIn = memo(() => {
           name='email'
           type='email'
           required
-          label={formatMessage(globalMessages.email)}
+          placeholder={formatMessage(globalMessages.email)}
         />
         <AppFormField
           name='password'
           type='password'
           required
-          label={formatMessage(globalMessages.password)}
+          placeholder={formatMessage(globalMessages.password)}
         />
         <AppSubmitButton
           color='primary'
           text={formatMessage(globalMessages.signIn)}
         />
       </AppForm>
-
       <div className={classes.socialButtons}>
         <AppAuthButton onClick={onSignInWithGoogleClick} type='google' />
         <AppAuthButton onClick={onSignInWithFacebookClick} type='facebook' />
       </div>
       <div className={classes.links}>
-        <AppLink
-          variant='body2'
-          to={ROUTES.resetPassword}
-          text={signInMessages.forgotPassword}
-        />
-        <AppLink
-          variant='body2'
-          to={ROUTES.signUp}
-          className={classes.signUpLink}
-          text={signInMessages.signUpLink}
-        />
+        <AppLink to={ROUTES.resetPassword} className={classes.signInLink}>
+          {formatMessage(signInMessages.forgotPassword)}
+        </AppLink>
+        <AppLink to={ROUTES.signUp}>
+          {formatMessage(signInMessages.signUpLink)}
+        </AppLink>
       </div>
       <AppCopyright className={classes.copy} />
-    </div>
+    </AppTile>
   );
 });

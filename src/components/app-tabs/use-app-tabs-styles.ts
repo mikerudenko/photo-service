@@ -12,9 +12,7 @@ export const useAppTabsStyles = makeStyles((theme: any) => ({
   linkActive: {
     color: theme.palette.primary.main,
   },
-  tabsRoot: {
-    borderBottom: `1px solid grey`,
-  },
+  tabsRoot: {},
   tabText: {
     color: 'black',
   },

@@ -60,12 +60,9 @@ export const HeaderRightSection = memo(() => {
   ));
 
   const renderSignInLink = useAutoCallback(() => (
-    <AppLink
-      className={classes.authLink}
-      variant='subtitle1'
-      to={ROUTES.signIn}
-      text={globalMessages.signIn}
-    />
+    <AppLink className={classes.authLink} to={ROUTES.signIn}>
+      {formatMessage(globalMessages.signIn)}
+    </AppLink>
   ));
 
   return (

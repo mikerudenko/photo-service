@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { useIOFormFieldErrorStyles } from './use-app-form-field-error-styles';
+import { useAppFormFieldErrorStyles } from './use-app-form-field-error-styles';
 import { P } from '../../app-typography';
 import c from 'classnames';
 import { MessageDescriptor } from 'react-intl';
@@ -13,7 +13,7 @@ export type AppFormFieldErrorProps = {
 
 export const AppFormFieldError = memo(
   ({ showError, error, className }: AppFormFieldErrorProps) => {
-    const classes = useIOFormFieldErrorStyles();
+    const classes = useAppFormFieldErrorStyles();
     const { formatMessage } = useIntl();
     return showError && error ? (
       <P className={c(classes.error, className)}>

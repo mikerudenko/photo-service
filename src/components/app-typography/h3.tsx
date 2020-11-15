@@ -1,13 +1,12 @@
-import Typography from '@material-ui/core/Typography';
-import React, { memo } from 'react';
 import type { ReactNode } from 'react';
+import React, { memo } from 'react';
+import { useAppTypographyStyles } from './use-app-typography-styles';
 
 export type H3Props = {
   children: ReactNode;
 };
 
-//! font-size = 48px
-
 export const H3 = memo(({ children }: H3Props) => {
-  return <Typography variant='h3'>{children}</Typography>;
+  const classes = useAppTypographyStyles();
+  return <h3 className={classes.h3}>{children}</h3>;
 });

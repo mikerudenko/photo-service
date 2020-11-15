@@ -3,7 +3,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 export const useLanguageTalesListStyles = makeStyles((theme: Theme) => {
   const activeStyles = {
     backgroundColor: 'white',
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.main,
   };
 
   return createStyles({
@@ -19,7 +19,7 @@ export const useLanguageTalesListStyles = makeStyles((theme: Theme) => {
       fontSize: 12,
       border: '1px solid white',
       transition: '.5s',
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
       cursor: 'pointer',
       '&:hover': activeStyles,
       '&:not(:last-child)': {

@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { useAutoMemo } from 'hooks.macro';
-import React, { memo, useState } from 'react';
+import React, { memo, useState, ChangeEvent } from 'react';
 import { useIntl } from 'react-intl';
 import {
   Order,
@@ -8,7 +8,9 @@ import {
   PhotographPrice,
   useGetOrderList,
   User,
+  ORDER_STATUS_SELECT_LIST,
 } from '../../api';
+import { useAutoCallback } from 'hooks.macro';
 import { globalMessages } from '../../app-global.messages';
 import { DATE_MASK } from '../../app.constants';
 import { AppTable } from '../../components/app-table';
@@ -16,16 +18,21 @@ import { useBooleanState } from '../../hooks/use-boolean-state';
 import { EditOrderModal } from './edit-order-modal';
 import { OrdersTableActionFormatter } from './orders-table-action-formatter';
 
-type OrdersTableProps = {
-  status: OrderStatus;
-};
+import { AppSelect } from '../../components/app-form';
 
-export const OrdersTable = memo(({ status }: OrdersTableProps) => {
+export const OrdersTable = memo(() => {
   const { formatMessage } = useIntl();
+  const [status, setStatus] = useState(OrderStatus.payed);
   const { orders, ordersLoading } = useGetOrderList({ status });
   const [orderToEdit, setOrderToEdit] = useState<null | Order>(null);
   const [editModalOpened, openEditModal, closeEditModal] = useBooleanState(
     false,
+  );
+
+  const onSelectChange = useAutoCallback(
+    ({ target: { value } }: ChangeEvent<{ name?: string; value: unknown }>) => {
+      setStatus(value as OrderStatus);
+    },
   );
 
   const columns = useAutoMemo(() => [
@@ -42,8 +49,8 @@ export const OrdersTable = memo(({ status }: OrdersTableProps) => {
       label: `${formatMessage(globalMessages.price)} - ${formatMessage(
         globalMessages.fee,
       )}`,
-      formatter: ({ price, fee, currency, type }: PhotographPrice) =>
-        `${price}${currency} - ${fee}${currency}, ${type} `,
+      formatter: ({ price, fee, photoType }: PhotographPrice) =>
+        `${price} - ${fee}, ${photoType} `,
     },
     {
       dataField: 'date',
@@ -77,6 +84,13 @@ export const OrdersTable = memo(({ status }: OrdersTableProps) => {
 
   return (
     <>
+      <AppSelect
+        label={formatMessage(globalMessages.status)}
+        options={ORDER_STATUS_SELECT_LIST}
+        onChange={onSelectChange}
+        value={status}
+        name='status'
+      />
       <AppTable
         {...{
           columns,

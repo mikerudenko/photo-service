@@ -37,7 +37,7 @@ export const useSocialSectionStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         backgroundColor: 'white',
         '& path': {
-          fill: theme.palette.primary.main,
+          fill: theme.palette.secondary.main,
         },
       },
       '&:focus': {

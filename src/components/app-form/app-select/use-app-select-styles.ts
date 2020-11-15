@@ -1,9 +1,12 @@
 import { makeStyles } from '@material-ui/styles';
 
-export const useAppSelectStyles = makeStyles({
+export const useAppSelectStyles = makeStyles((theme: any) => ({
   formControl: {
     width: '100%',
     marginBottom: 10,
+    '& fieldset': {
+      borderRadius: '45px',
+    },
   },
   errorLabel: {
     marginLeft: 0,
@@ -15,4 +18,4 @@ export const useAppSelectStyles = makeStyles({
   multiSelect: {
     width: '100%',
   },
-});
+}));

@@ -1,4 +1,3 @@
-import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import React, { memo } from 'react';
@@ -10,13 +9,13 @@ export const AppHeader = memo(() => {
   const classes = useAppHeaderStyles();
 
   return (
-    <AppBar position='static' className={classes.root}>
+    <div className={classes.header}>
       <Container maxWidth='lg'>
         <Toolbar disableGutters>
           <HeaderLeftSection />
           <HeaderRightSection />
         </Toolbar>
       </Container>
-    </AppBar>
+    </div>
   );
 });

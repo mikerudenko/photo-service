@@ -1,44 +1,29 @@
-import Link from '@material-ui/core/Link';
-import React, { forwardRef, memo } from 'react';
-import { Link as RouterLink, LinkProps } from 'react-router-dom';
-import { useIntl, MessageDescriptor } from 'react-intl';
-
-type AppLinkVariant =
-  | 'button'
-  | 'caption'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'body1'
-  | 'body2'
-  | 'overline'
-  | 'srOnly'
-  | 'inherit'
-  | undefined;
+import { useAutoCallback } from 'hooks.macro';
+import React, { memo, ReactNode } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useAppLinkStyles } from './use-app-link-styles';
+import c from 'classnames';
 
 export type AppLinkProps = {
   to: string;
-  variant: AppLinkVariant;
+  children: ReactNode;
   className?: string;
-  text: MessageDescriptor | string;
 };
 
-const CollisionLink = forwardRef<
-  HTMLAnchorElement,
-  Omit<LinkProps, 'innerRef'>
->((props, ref) => <RouterLink innerRef={ref as any} {...props} />);
+export const AppLink = memo(
+  ({ to, children, className = '' }: AppLinkProps) => {
+    const history = useHistory();
+    const classes = useAppLinkStyles();
 
-export const AppLink = memo(({ text, ...rest }: AppLinkProps) => {
-  const { formatMessage } = useIntl();
+    const onLinkClick = useAutoCallback(() => {
+      history.push(to);
+    });
 
-  return (
-    <Link component={CollisionLink} {...rest}>
-      {typeof text === 'string' ? text : formatMessage(text)}
-    </Link>
-  );
-});
+    return (
+      // eslint-disable-next-line jsx-a11y/anchor-is-valid
+      <a href='#' onClick={onLinkClick} className={c(classes.link, className)}>
+        {children}
+      </a>
+    );
+  },
+);

@@ -1,9 +1,10 @@
-import Button, { ButtonProps } from '@material-ui/core/Button';
+import { ButtonProps } from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import c from 'classnames';
 import React, { memo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useAppSubmitButtonStyles } from './use-app-submit-button-styles';
+import { ButtonText } from '../../app-typography';
 
 interface AppSubmitButtonProps {
   text: string;
@@ -26,19 +27,17 @@ export const AppSubmitButton = memo(
 
     return (
       <div className={c(classes.wrapper, className)}>
-        <Button
+        <button
           type='submit'
           disabled={!!Object.keys(errors).length || isSubmitting}
           {...{
             size,
             className: classes.button,
             onClick,
-            variant: 'outlined',
-            color,
           }}
         >
-          {text}
-        </Button>
+          <ButtonText>{text}</ButtonText>
+        </button>
         {isSubmitting && (
           <CircularProgress size={24} className={classes.buttonProgress} />
         )}

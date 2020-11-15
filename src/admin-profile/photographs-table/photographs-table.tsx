@@ -22,7 +22,11 @@ export const PhotographsTable = memo(() => {
           translations.find(({ language }) => language === locale) ||
           translations[0];
         return (
-          <Link to={`${ROUTES.photographs}/${id}/${ROUTES.edit}`}>{name}</Link>
+          <Link
+            to={`${ROUTES.profile}${ROUTES.photographs}${ROUTES.edit}/${id}`}
+          >
+            {name}
+          </Link>
         );
       },
     },

@@ -5,7 +5,5 @@ export const usePhotographFormStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: 500,
-    margin: '0 auto',
   },
 });

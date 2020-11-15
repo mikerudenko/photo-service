@@ -149,4 +149,76 @@ export const globalMessages = defineMessages({
     id: 'app.rejected-orders',
     defaultMessage: 'Rejected orders',
   },
+  selectImages: {
+    id: 'app.select-image',
+    defaultMessage: 'Select image',
+  },
+  avatar: {
+    id: 'app.avatar',
+    defaultMessage: 'Avatar',
+  },
+  man: {
+    id: 'app.man',
+    defaultMessage: 'Man',
+  },
+  women: {
+    id: 'app.women',
+    defaultMessage: 'Women',
+  },
+  videoOperator: {
+    id: 'app.video-operator',
+    defaultMessage: 'Video operator',
+  },
+  sex: {
+    id: 'app.sex',
+    defaultMessage: 'Sex',
+  },
+  photographType: {
+    id: 'app.photograph-type',
+    defaultMessage: 'Photograph type',
+  },
+  backgroundImage: {
+    id: 'app.background-image',
+    defaultMessage: 'Background image',
+  },
+  videoBackgroundLink: {
+    id: 'app.video-background-link',
+    defaultMessage: 'Video background link',
+  },
+  videoLinks: {
+    id: 'app.video-links',
+    defaultMessage: 'Video links',
+  },
+  photos: {
+    id: 'app.photos',
+    defaultMessage: 'Photos',
+  },
+  description: {
+    id: 'app.description',
+    defaultMessage: 'Description',
+  },
+  wedding: {
+    id: 'app.wedding',
+    defaultMessage: 'Wedding',
+  },
+  animal: {
+    id: 'app.animal',
+    defaultMessage: 'Animal',
+  },
+  portrait: {
+    id: 'app.portrait',
+    defaultMessage: 'Portrait',
+  },
+  interior: {
+    id: 'app.interior',
+    defaultMessage: 'Interior',
+  },
+  exterior: {
+    id: 'app.exterior',
+    defaultMessage: 'Exterior',
+  },
+  drone: {
+    id: 'app.drone',
+    defaultMessage: 'Drone',
+  },
 });

@@ -6,6 +6,7 @@ import { AppCopyright } from '../components/app-copyright';
 import { AppForm } from '../components/app-form/app-form';
 import { AppLink } from '../components/app-link';
 import { AppLogo } from '../components/app-logo';
+import { AppTile } from '../components/app-tile';
 import { AppFormField } from '../components/app-form/app-form-field';
 import { globalMessages } from '../app-global.messages';
 import { signUpMessages } from './sign-up.messages';
@@ -22,7 +23,7 @@ export const SignUp = memo(() => {
   const classes = useSignUpStyles();
   const { formatMessage } = useIntl();
   return (
-    <div className={classes.formWrapper}>
+    <AppTile className={classes.formWrapper}>
       <AppLogo />
       <AppForm
         onSubmit={onSubmit}
@@ -33,19 +34,19 @@ export const SignUp = memo(() => {
           name='email'
           type='email'
           required
-          label={formatMessage(globalMessages.email)}
+          placeholder={formatMessage(globalMessages.email)}
         />
         <AppFormField
           name='password'
           type='password'
           required
-          label={formatMessage(globalMessages.password)}
+          placeholder={formatMessage(globalMessages.password)}
         />
         <AppFormField
           name='confirmPassword'
           type='password'
           required
-          label={formatMessage(globalMessages.confirmPassword)}
+          placeholder={formatMessage(globalMessages.confirmPassword)}
         />
         <AppSubmitButton
           color='primary'
@@ -57,13 +58,11 @@ export const SignUp = memo(() => {
         <AppAuthButton onClick={onSignUpWithFacebookClick} type='facebook' />
       </div>
       <div className={classes.links}>
-        <AppLink
-          variant='body2'
-          to={ROUTES.signIn}
-          text={signUpMessages.signInLink}
-        />
+        <AppLink to={ROUTES.signIn}>
+          {formatMessage(signUpMessages.signInLink)}
+        </AppLink>
       </div>
       <AppCopyright className={classes.copy} />
-    </div>
+    </AppTile>
   );
 });
