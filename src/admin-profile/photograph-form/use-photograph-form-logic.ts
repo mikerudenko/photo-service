@@ -6,6 +6,7 @@ import {
   updatePhotograph,
 } from '../../api';
 import { getFileExtension } from '../../services/helpers-service';
+import { LOCALE } from '../../app.constants';
 import get from 'lodash/get';
 
 export const usePhotographFormLogic = (photographId: string) => {
@@ -41,6 +42,10 @@ export const usePhotographFormLogic = (photographId: string) => {
         fee: Number(fee),
         photoType,
         price: Number(price),
+      })),
+      translations: Object.keys(LOCALE).map((language: any, index) => ({
+        ...photograph.translations[index],
+        language,
       })),
       id: photographId,
       backgroundImage,

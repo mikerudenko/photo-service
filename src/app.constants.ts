@@ -8,9 +8,9 @@ export enum CURRENCY {
 }
 
 export enum LOCALE {
-  En = 'en',
-  Ua = 'ua',
-  Ru = 'ru',
+  en = 'en',
+  ua = 'ua',
+  ru = 'ru',
 }
 
 export enum ROUTES {
@@ -90,15 +90,15 @@ export const AppTheme = {
 
 export const LOCALE_SELECT_LIST = [
   {
-    value: LOCALE.En,
+    value: LOCALE.en,
     label: globalMessages.englishLanguage,
   },
   {
-    value: LOCALE.Ua,
+    value: LOCALE.ua,
     label: globalMessages.ukrainianLanguage,
   },
   {
-    value: LOCALE.Ru,
+    value: LOCALE.ru,
     label: globalMessages.russianLanguage,
   },
 ];
@@ -106,9 +106,9 @@ export const LOCALE_SELECT_LIST = [
 export type TranslationMessages = Record<string, string>;
 
 export const translationDictionary = {
-  [LOCALE.En]: prepareMessages(enMessages),
-  [LOCALE.Ua]: prepareMessages(uaMessages),
-  [LOCALE.Ru]: prepareMessages(ruMessages),
+  [LOCALE.en]: prepareMessages(enMessages),
+  [LOCALE.ua]: prepareMessages(uaMessages),
+  [LOCALE.ru]: prepareMessages(ruMessages),
 };
 
 function prepareMessages(

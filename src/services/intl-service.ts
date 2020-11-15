@@ -2,9 +2,9 @@ import { LOCALE } from '../app.constants';
 
 export const getLocale = () => {
   try {
-    return (window.localStorage.getItem('locale') as LOCALE) || LOCALE.Ru;
+    return (window.localStorage.getItem('locale') as LOCALE) || LOCALE.ru;
   } catch (error) {
-    return LOCALE.Ru as LOCALE;
+    return LOCALE.ru as LOCALE;
   }
 };
 

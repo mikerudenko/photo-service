@@ -6,12 +6,12 @@ import { ROUTES } from '../../app.constants';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { useGetPhotographList, PhotographTranslation } from '../../api';
-import { getLocale } from '../../services/intl-service';
+import { useRootContext } from 'root/root.context';
 
 export const PhotographsTable = memo(() => {
   const { formatMessage } = useIntl();
   const { photographs, photographsLoading } = useGetPhotographList();
-  const locale = getLocale();
+  const { locale } = useRootContext();
 
   const columns = useAutoMemo(() => [
     {

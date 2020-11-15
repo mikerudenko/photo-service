@@ -20,17 +20,17 @@ export const getInitialPhotograph = (): Photograph => ({
   photographType: PhotographType.photograph,
   translations: [
     {
-      language: LOCALE.En,
+      language: LOCALE.en,
       name: '',
       description: '',
     },
     {
-      language: LOCALE.Ua,
+      language: LOCALE.ua,
       name: '',
       description: '',
     },
     {
-      language: LOCALE.Ru,
+      language: LOCALE.ru,
       name: '',
       description: '',
     },
