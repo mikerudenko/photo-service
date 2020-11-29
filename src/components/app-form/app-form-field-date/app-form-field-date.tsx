@@ -32,7 +32,7 @@ export const AppFormFieldDate = ({ label, name }: FormFieldDateProps) => {
   });
 
   const onChange = useAutoCallback((value) => {
-    setValue(name, value.toISOString());
+    setValue(name, value);
   });
 
   return (

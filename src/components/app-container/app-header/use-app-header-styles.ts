@@ -4,7 +4,7 @@ export const useAppHeaderStyles = makeStyles((theme: any) => ({
   header: {
     backgroundColor: theme.palette.primary.main,
     boxShadow: theme.shadow.main,
-    height: 100,
-    padding: 20,
+    height: 70,
+    boxSizing: 'border-box',
   },
 }));

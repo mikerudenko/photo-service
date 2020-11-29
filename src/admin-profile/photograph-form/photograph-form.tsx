@@ -33,7 +33,7 @@ export const PhotographForm = memo(
 
     const renderTranslation = (locale: string, index: number) => (
       <React.Fragment key={index}>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <H3>{locale}</H3>
           <AppFormField
             name={`translations[${index}].name`}

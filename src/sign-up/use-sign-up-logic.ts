@@ -21,7 +21,7 @@ export const useSignUpLogic = () => {
   const onSubmit = useAutoCallback(async (payload: SignUpValues) => {
     try {
       await signUpWithCredentials(payload);
-      history.push(ROUTES.profile);
+      history.push(ROUTES.root);
     } catch (error) {}
   });
 

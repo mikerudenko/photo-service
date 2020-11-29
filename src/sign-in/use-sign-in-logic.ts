@@ -14,7 +14,7 @@ export const useSignInLogic = () => {
     async (payload: SignInValues, _: any, setError) => {
       try {
         await signInWithCredentials(payload);
-        history.push(ROUTES.profile);
+        history.push(ROUTES.root);
       } catch (error) {
         setError('password', authMessages.wrongPassword);
       }
