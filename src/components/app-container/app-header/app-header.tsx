@@ -10,7 +10,7 @@ export const AppHeader = memo(() => {
 
   return (
     <div className={classes.header}>
-      <Container maxWidth='lg'>
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <HeaderLeftSection />
           <HeaderRightSection />

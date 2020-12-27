@@ -16,6 +16,8 @@ import { useOnlineStatus } from '../hooks/use-online-status';
 import { useLocale } from './use-locale';
 import { RootContext } from './root.context';
 import { TranslationsProvider } from '../translation-provider';
+import { Payment } from '../payment';
+
 import uaLocale from 'date-fns/locale/uk';
 import enLocale from 'date-fns/locale/en-US';
 import ruLocale from 'date-fns/locale/ru';
@@ -58,6 +60,7 @@ export const Root = memo(() => {
             <Route path={ROUTES.profile} component={Profile} />
             <Route path={ROUTES.notFound} component={NotFound} />
             <Route path={ROUTES.photographs} component={PhotographsGrid} />
+            <Route path={ROUTES.payment} component={Payment} />
             <Route
               path={`${ROUTES.photographs}/:id`}
               component={PhotographDetails}

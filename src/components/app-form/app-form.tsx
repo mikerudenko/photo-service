@@ -7,18 +7,9 @@ export type AppFormProps = {
   formConfig?: UseFormOptions<any>;
 };
 
-const defaultFormConfig = {
-  // mode: 'onChange' as const,
-  // reValidateMode: 'onSubmit' as const,
-  // defaultValues: {},
-  // validateCriteriaMode: 'all' as const,
-  // submitFocusError: true,
-  // nativeValidation: false,
-};
-
 export const AppForm: FC<AppFormProps> = memo(
   ({ children, className, formConfig, onSubmit }) => {
-    const methods = useForm({ ...defaultFormConfig, ...formConfig });
+    const methods = useForm({ ...formConfig });
 
     return (
       <FormProvider {...methods}>

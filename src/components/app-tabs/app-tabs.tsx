@@ -4,7 +4,7 @@ import c from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import { AppTabContent } from './app-tab-content';
 import { useAppTabsStyles } from './use-app-tabs-styles';
-import { P } from '../app-typography';
+import { AppTypography } from '../app-typography';
 
 export interface AppTabItem {
   label: string;
@@ -50,13 +50,14 @@ export const AppTabs = ({
             key={index}
             {...{
               label: (
-                <P
+                <AppTypography
+                  variant='p'
                   className={c(classes.tabText, {
                     [classes.activeTabText]: activeTab === index,
                   })}
                 >
                   {label}
-                </P>
+                </AppTypography>
               ),
             }}
             classes={{

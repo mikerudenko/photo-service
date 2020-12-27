@@ -1,6 +1,6 @@
 import c from 'classnames';
 import React, { forwardRef, ReactNode } from 'react';
-import { P } from '../app-typography';
+import { AppTypography } from '../app-typography';
 import { AppAlertType } from './app-alert.constants';
 import { useIOAlertStyles } from './use-app-alert-styles';
 
@@ -16,7 +16,7 @@ export const AppAlert = forwardRef(
 
     return (
       <div ref={ref} className={c(classes.alert, classes[type])}>
-        <P>{message}</P>
+        <AppTypography variant='p'>{message}</AppTypography>
       </div>
     );
   },

@@ -5,7 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import { useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { globalMessages } from '../../../app-global.messages';
-import { H2 } from '../../app-typography';
+import { AppTypography } from '../../app-typography';
 import { useAppDropzoneImageStyles } from './use-app-dropzone-image-styles';
 
 interface IFileInputProps
@@ -55,7 +55,9 @@ export const AppFormImageDropzone = ({
 
   return (
     <div className={classes.dropzone}>
-      <H2 className={classes.title}>{label}</H2>
+      <AppTypography variant='body' className={classes.title}>
+        {label}
+      </AppTypography>
       <label htmlFor={name} className={classes.label}>
         {formatMessage(globalMessages.selectImages)}
       </label>

@@ -221,4 +221,12 @@ export const globalMessages = defineMessages({
     id: 'app.drone',
     defaultMessage: 'Drone',
   },
+  portraitPhotography: {
+    id: 'app.portrait-photography',
+    defaultMessage: 'Portrait photography',
+  },
+  shoot: {
+    id: 'app.shoot',
+    defaultMessage: 'Shoot',
+  },
 });

@@ -1,3 +1,37 @@
+@font-face {
+  font-family: 'Gilroy';
+  font-style: 'normal';
+  font-weight: 700;
+  src: url('./fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Gilroy-Bold.woff') format('woff'),
+    url('./fonts/Gilroy-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: 'normal';
+  font-weight: 300;
+  src: url('./fonts/Gilroy-Thin.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Gilroy-Thin.woff') format('woff'),
+    url('./fonts/Gilroy-Thin.ttf') format('truetype');
+}
+
 body {
-  background: white !important;
+  overflow: auto;
+  position: relative;
+  min-height: 100vh;
+  font-family: Gilroy, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: white !important;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }

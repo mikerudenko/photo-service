@@ -1,3 +1,4 @@
+import { PhotoType } from './api';
 import { globalMessages } from './app-global.messages';
 import enMessages from './translations/en.json';
 import ruMessages from './translations/ru.json';
@@ -59,7 +60,7 @@ export const FLEX_CENTER_START = {
 export const AppTheme = {
   palette: {
     primary: {
-      main: '#FFD159',
+      main: '#000000',
     },
     secondary: {
       main: '#AD7EBC',
@@ -68,7 +69,7 @@ export const AppTheme = {
   },
   darkGrey: '#AEA8B3',
   error: '#DC7603',
-  fontFamily: "'Merriweather Sans', sans-serif",
+  fontFamily: 'Gilroy, sans-serif',
   shadow: {
     main: '0px 14px 23px rgba(28, 37, 44, 0.08)',
   },
@@ -122,3 +123,12 @@ function prepareMessages(
 }
 
 export const DATE_MASK = 'dd/MM/yyyy';
+
+export const PHOTO_TYPE_MESSAGE_MAP = {
+  [PhotoType.portrait]: globalMessages.portrait,
+  [PhotoType.animal]: globalMessages.animal,
+  [PhotoType.drone]: globalMessages.drone,
+  [PhotoType.exterior]: globalMessages.exterior,
+  [PhotoType.interior]: globalMessages.interior,
+  [PhotoType.wedding]: globalMessages.wedding,
+};

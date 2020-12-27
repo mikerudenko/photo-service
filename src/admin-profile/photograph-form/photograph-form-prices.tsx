@@ -6,7 +6,7 @@ import { PhotographPrice } from '../../api';
 import { AppAddButton } from '../../components/app-button';
 import { INITIAL_PHOTO_PRICE } from '../admin-profile.constants';
 import { PhotographFormPriceRow } from './photograph-form-price-row';
-import { H3 } from '../../components/app-typography';
+import { AppTypography } from '../../components/app-typography';
 
 export const PhotographFormPrices = memo(() => {
   const { control } = useFormContext();
@@ -33,7 +33,7 @@ export const PhotographFormPrices = memo(() => {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12}>
-        <H3>Prices</H3>
+        <AppTypography variant='body'>Prices</AppTypography>
       </Grid>
 
       {fields.map(renderPriceListRow)}

@@ -4,7 +4,7 @@ import c from 'classnames';
 import React, { memo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useAppSubmitButtonStyles } from './use-app-submit-button-styles';
-import { ButtonText } from '../../app-typography';
+import { AppTypography } from '../../app-typography';
 
 interface AppSubmitButtonProps {
   text: string;
@@ -36,7 +36,7 @@ export const AppSubmitButton = memo(
             onClick,
           }}
         >
-          <ButtonText>{text}</ButtonText>
+          <AppTypography variant='body'>{text}</AppTypography>
         </button>
         {isSubmitting && (
           <CircularProgress size={24} className={classes.buttonProgress} />

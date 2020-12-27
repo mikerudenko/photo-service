@@ -1,6 +1,6 @@
 import c from 'classnames';
 import React, { memo } from 'react';
-import { P } from '../../app-typography';
+import { AppTypography } from '../../app-typography';
 import { IOTableColumn } from '../app-table.types';
 import { useIOTableStyles } from '../use-app-table-styles';
 
@@ -16,7 +16,9 @@ export const AppTableTheadCell = memo(
 
     return (
       <th key={dataField} className={c(headerClasses, classes.th)}>
-        <P className={classes.theadCellLabel}>{label}</P>
+        <AppTypography variant='p' className={classes.theadCellLabel}>
+          {label}
+        </AppTypography>
       </th>
     );
   },

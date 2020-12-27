@@ -13,7 +13,7 @@ import {
 import { getInitialPhotograph } from '../admin-profile.constants';
 import { useIntl } from 'react-intl';
 import Grid from '@material-ui/core/Grid';
-import { H3 } from '../../components/app-typography';
+import { AppTypography } from '../../components/app-typography';
 import { LOCALE } from '../../app.constants';
 import { PhotographFormPrices } from './photograph-form-prices';
 
@@ -34,7 +34,7 @@ export const PhotographForm = memo(
     const renderTranslation = (locale: string, index: number) => (
       <React.Fragment key={index}>
         <Grid item xs={12} md={4}>
-          <H3>{locale}</H3>
+          <AppTypography variant='body'>{locale}</AppTypography>
           <AppFormField
             name={`translations[${index}].name`}
             type='text'

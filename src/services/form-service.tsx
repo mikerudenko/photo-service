@@ -7,7 +7,7 @@ type HasErrorDTO = {
 };
 
 export const hasError = ({ errors, name, isDirty }: HasErrorDTO) => {
-  const error = get(errors, name);p
+  const error = get(errors, name);
   return {
     error,
     showError: isDirty && !!error,

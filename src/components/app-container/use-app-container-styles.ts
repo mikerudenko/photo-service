@@ -6,9 +6,9 @@ export const useAppContainerStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      minHeight: '100vh',
     },
     containerContent: {
+      paddingTop: 50,
       flexGrow: 1,
       display: 'flex',
       flexDirection: 'column',

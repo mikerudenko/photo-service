@@ -27,5 +27,16 @@ service cloud.firestore {
        allow get, list: if true;
        allow delete, write, update: if isAdmin();
     }
+
+    match /stripe_customers/{uid} {
+      allow read, write: if request.auth.uid == uid;
+
+      match /payment_methods/{id} {
+        allow read, write: if request.auth.uid == uid;
+      }
+      match /payments/{id} {
+        allow read, write: if request.auth.uid == uid;
+      }
+    }
   }
 }

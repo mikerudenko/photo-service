@@ -28,7 +28,7 @@ export const AppContainer = memo(
           children
         ) : (
           <Container
-            maxWidth='lg'
+            maxWidth='xl'
             className={c(containerClass, classes.containerContent)}
           >
             {children}

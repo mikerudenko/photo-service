@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useAppFormFieldErrorStyles } from './use-app-form-field-error-styles';
-import { P } from '../../app-typography';
+import { AppTypography } from '../../app-typography';
 import c from 'classnames';
 import { MessageDescriptor } from 'react-intl';
 import { useIntl } from 'react-intl';
@@ -16,9 +16,9 @@ export const AppFormFieldError = memo(
     const classes = useAppFormFieldErrorStyles();
     const { formatMessage } = useIntl();
     return showError && error ? (
-      <P className={c(classes.error, className)}>
+      <AppTypography variant='p' className={c(classes.error, className)}>
         {typeof error === 'string' ? error : formatMessage(error)}
-      </P>
+      </AppTypography>
     ) : (
       <span className={classes.stub} />
     );

@@ -3,7 +3,7 @@ import c from 'classnames';
 import { useAutoCallback } from 'hooks.macro';
 import React, { memo } from 'react';
 import { useHistory } from 'react-router';
-import { P } from '../app-typography';
+import { AppTypography } from '../app-typography';
 import { useAppTabsStyles } from './use-app-tabs-styles';
 
 type AppRouterTabProps = {
@@ -27,13 +27,14 @@ export const AppRouterTab = memo(
         {...{ to, onClick }}
         {...{
           label: (
-            <P
+            <AppTypography
+              variant='p'
               className={c(classes.tabText, {
                 [classes.activeTabText]: isActive,
               })}
             >
               {label}
-            </P>
+            </AppTypography>
           ),
         }}
         classes={{
