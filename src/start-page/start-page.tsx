@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { AppContainer } from '../components/app-container';
 import { useStartPageStyles } from './use-start-page-styles';
-import { StartPageDesktopSlider } from './desktop-slider/start-page-desktop-slider';
+import { StartPageSlider } from './desktop-slider/start-page-slider';
 
 export const StartPage = memo(() => {
   const classes = useStartPageStyles();
@@ -11,7 +11,7 @@ export const StartPage = memo(() => {
       showFooter={false}
       containerClass={classes.startPageContainer}
     >
-      <StartPageDesktopSlider />
+      <StartPageSlider />
     </AppContainer>
   );
 });

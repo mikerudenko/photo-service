@@ -20,6 +20,6 @@ export const startPageMessages = defineMessages({
   },
   selectPhotograph: {
     id: 'start-page.seleсt-photogrpah',
-    defaultMessage: 'Quote about type',
+    defaultMessage: 'Select photograph',
   },
 });

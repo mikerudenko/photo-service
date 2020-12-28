@@ -14,8 +14,8 @@ export const useAppTypographyStyles = makeStyles((theme: any) => {
       lineHeight: '84px',
       ...baseStyles,
       '@media (min-width: 320px)': {
-        fontSize: '42px',
-        lineHeight: '50px',
+        fontSize: '27px',
+        lineHeight: '36px',
       },
       '@media (min-width: 768px)': {
         fontSize: '62px',

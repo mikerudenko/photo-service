@@ -19,13 +19,20 @@ export const useStartPageStyles = makeStyles((theme: Theme) => ({
     minHeight: 'calc(100vh - 200px)',
   },
   desktopSlideInfo: {
-    paddingTop: 100,
+    paddingTop: 20,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: 0,
+      textAlign: 'center',
+    },
   },
   desktopSlideImages: {},
   desktopSlideImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    [theme.breakpoints.down('sm')]: {
+      height: '77%',
+    },
   },
   photoTypeTitle: {
     marginTop: 70,
@@ -57,6 +64,22 @@ export const useStartPageStyles = makeStyles((theme: Theme) => ({
       position: 'absolute',
       top: 0,
       left: '50%',
+    },
+  },
+  mobileNavigationContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  selectPhotographButton: {
+    marginTop: 20,
+    maxWidth: 350,
+    position: 'relative',
+    zIndex: 10,
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px auto',
     },
   },
 }));
