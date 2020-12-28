@@ -35,7 +35,7 @@ export const useStartPageStyles = makeStyles((theme: Theme) => ({
     },
   },
   photoTypeTitle: {
-    marginTop: 70,
+    marginTop: 30,
     marginBottom: 30,
   },
   desktopSliderNavigationContainer: {
@@ -81,5 +81,12 @@ export const useStartPageStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('sm')]: {
       margin: '20px auto',
     },
+  },
+  quote: {
+    textAlign: 'right',
+    paddingBottom: 20,
+    borderBottom: '1px solid black',
+    marginBottom: 20,
+    marginTop: 50,
   },
 }));

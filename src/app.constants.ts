@@ -70,6 +70,7 @@ export const AppTheme = {
   darkGrey: '#AEA8B3',
   error: '#DC7603',
   fontFamily: 'Gilroy, sans-serif',
+  fontFamilyItalic: 'Ribbon, sans-serif',
   shadow: {
     main: '0px 14px 23px rgba(28, 37, 44, 0.08)',
   },

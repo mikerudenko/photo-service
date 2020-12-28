@@ -20,6 +20,7 @@ export const StartPageSlider = memo(() => {
     speed: 500,
     autoplaySpeed: 2500,
     pauseOnHover: true,
+    arrows: false,
     afterChange: setActiveIndex,
   };
   const setActivePhotoType = useAutoCallback((photoType: PhotoType) => {

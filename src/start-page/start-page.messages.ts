@@ -14,12 +14,12 @@ export const startPageMessages = defineMessages({
     defaultMessage:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies consectetur tristique nunc netus porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies consectetur tristique nunc netus porta. ',
   },
-  quotePortraitType: {
-    id: 'start-page.quote-portrait-type',
-    defaultMessage: 'Quote about type',
+  quote: {
+    id: 'start-page.quote',
+    defaultMessage: 'Just select you photo session type',
   },
   selectPhotograph: {
-    id: 'start-page.seleсt-photogrpah',
+    id: 'start-page.seleсt-photograph',
     defaultMessage: 'Select photograph',
   },
 });

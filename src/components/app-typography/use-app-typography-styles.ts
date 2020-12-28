@@ -58,11 +58,49 @@ export const useAppTypographyStyles = makeStyles((theme: any) => {
       fontWeight: 700,
       fontSize: '24px',
       lineHeight: '29px',
+      '@media (min-width: 320px)': {
+        fontSize: '16px',
+        lineHeight: '26px',
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '18px',
+        lineHeight: '28px',
+      },
+      '@media (min-width: 1280px)': {
+        fontSize: '22px',
+        lineHeight: '34px',
+      },
+      '@media (min-width: 1920px)': {
+        fontSize: '24px',
+        lineHeight: '36px',
+      },
     },
     p: {
       fontFamily: theme.fontFamily,
       fontSize: '24px',
       lineHeight: '27px',
+      fontWeight: 300,
+      '@media (min-width: 320px)': {
+        fontSize: '16px',
+        lineHeight: '26px',
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '18px',
+        lineHeight: '28px',
+      },
+      '@media (min-width: 1280px)': {
+        fontSize: '22px',
+        lineHeight: '34px',
+      },
+      '@media (min-width: 1920px)': {
+        fontSize: '24px',
+        lineHeight: '36px',
+      },
+    },
+    italic: {
+      fontFamily: theme.fontFamilyItalic,
+      fontSize: '34px',
+      lineHeight: '37px',
       fontWeight: 300,
     },
     'button-text': {

@@ -16,6 +16,15 @@
     url('./fonts/Gilroy-Thin.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Ribbon';
+  font-style: 'normal';
+  font-weight: 300;
+  src: url('./fonts/ribbon.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/ribbon.woff') format('woff'),
+    url('./fonts/ribbon.otf') format('truetype');
+}
+
 body {
   overflow: auto;
   position: relative;

@@ -4,7 +4,7 @@ import { useAppTypographyStyles } from './use-app-typography-styles';
 import c from 'classnames';
 
 type AppTypographyProps = {
-  variant: 'body' | 'h1' | 'p' | 'body2';
+  variant: 'body' | 'h1' | 'p' | 'body2' | 'italic';
   className?: string;
   children: ReactNode;
   onClick?(event: any): void;

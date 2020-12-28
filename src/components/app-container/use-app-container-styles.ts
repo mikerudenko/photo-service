@@ -8,7 +8,7 @@ export const useAppContainerStyles = makeStyles((theme: Theme) =>
       justifyContent: 'flex-start',
     },
     containerContent: {
-      paddingTop: 50,
+      paddingTop: 20,
       flexGrow: 1,
       display: 'flex',
       flexDirection: 'column',

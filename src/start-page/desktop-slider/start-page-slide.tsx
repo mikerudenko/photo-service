@@ -32,12 +32,15 @@ export const StartPageDesktopSlide = memo(
     );
 
     return (
-      <Grid container spacing={4} className={classes.desktopSlide}>
+      <Grid container spacing={2} className={classes.desktopSlide}>
         <Grid item sm={12} md={7}>
           <AppTypography variant='h1' className={classes.desktopSlideInfo}>
             {formatMessage(startPageMessages.title)}
           </AppTypography>
           <Hidden smDown>
+            <AppTypography variant='italic' className={classes.quote}>
+              {formatMessage(startPageMessages.quote)}
+            </AppTypography>
             <AppTypography variant='body' className={classes.photoTypeTitle}>
               {formatMessage(PHOTO_TYPE_MESSAGE_MAP[photoType])}{' '}
               {formatMessage(globalMessages.shoot)}
