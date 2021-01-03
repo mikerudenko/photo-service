@@ -8,10 +8,15 @@ export const INITIAL_PHOTO_PRICE = {
   fee: 0,
 };
 
+export const INITIAL_PHOTO = {
+  photoType: PhotoType.wedding,
+  src: '',
+};
+
 export const getInitialPhotograph = (): Photograph => ({
   id: uuidv4(),
   avatar: null,
-  photos: null,
+  photos: [],
   backgroundImage: null,
   photoTypes: [],
   sex: 'man',

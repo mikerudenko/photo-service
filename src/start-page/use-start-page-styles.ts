@@ -70,7 +70,7 @@ export const useStartPageStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 20,
+    marginTop: 'auto',
     marginBottom: 20,
   },
   selectPhotographButton: {

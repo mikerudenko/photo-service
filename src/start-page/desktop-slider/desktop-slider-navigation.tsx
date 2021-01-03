@@ -14,11 +14,12 @@ export const DesktopSliderNavigation = memo(
     const classes = useStartPageStyles();
 
     const renderSliderNavigationItem = useAutoCallback(
-      (photoType: PhotoType) => {
+      (photoType: PhotoType, index: number) => {
         const isActive = photoType === activePhotoType;
 
         return (
           <DesktopSliderNavigationItem
+            key={index}
             {...{ isActive, photoType, setActivePhotoType }}
           />
         );

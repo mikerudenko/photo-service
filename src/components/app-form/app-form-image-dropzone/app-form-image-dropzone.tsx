@@ -24,16 +24,18 @@ export const AppFormImageDropzone = ({
   accept,
   label = name,
   imageClassName,
+  multiple = false,
   ...rest
 }: IFileInputProps) => {
   const classes = useAppDropzoneImageStyles();
   const { formatMessage } = useIntl();
   const { register, unregister, setValue, watch } = useFormContext();
-  const files: File[] | string[] | string = watch(name);
+  const dropzoneValue: File[] | string[] | string | File = watch(name);
   const onDrop = useAutoCallback((droppedFiles) => {
-    setValue(name, droppedFiles, { shouldValidate: true });
+    const value = multiple ? droppedFiles : droppedFiles[0];
+    setValue(name, value, { shouldValidate: true });
   });
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getInputProps } = useDropzone({
     onDrop,
     accept: accept,
   });
@@ -72,10 +74,12 @@ export const AppFormImageDropzone = ({
         className={classes.fileInput}
         {...getInputProps()}
       />
-      {!!files?.length && (
+      {dropzoneValue && (
         <div className={classes.imagesContainer}>
-          {/* @ts-ignore */}
-          {Array.isArray(files) ? files.map(renderImage) : renderImage(files)}
+          {Array.isArray(dropzoneValue)
+            ? // @ts-ignore
+              dropzoneValue.map(renderImage)
+            : renderImage(dropzoneValue)}
         </div>
       )}
     </div>

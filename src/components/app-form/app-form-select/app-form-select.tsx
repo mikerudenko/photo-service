@@ -39,7 +39,6 @@ export const AppFormSelect = memo(
     );
 
     const onChangeMultipleSelect = useAutoCallback(([, data]: any) => {
-      debugger;
       setValue(name, data);
     });
 

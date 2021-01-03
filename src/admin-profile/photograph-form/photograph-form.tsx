@@ -1,21 +1,21 @@
+import Grid from '@material-ui/core/Grid';
 import React, { memo } from 'react';
-import { AppForm, AppFormField } from '../../components/app-form';
-import { usePhotographFormLogic } from './use-photograph-form-logic';
-import { AppSubmitButton } from '../../components/app-button/app-submit-button';
-import { usePhotographFormStyles } from './use-photograph-form-styles';
-import { globalMessages } from '../../app-global.messages';
+import { useIntl } from 'react-intl';
 import {
   Photograph,
   PHOTO_TYPE_SELECT_LIST,
   SEX_SELECT_OPTIONS,
-  PHOTOGRAPH_TYPE_SELECT_OPTIONS,
 } from '../../api';
-import { getInitialPhotograph } from '../admin-profile.constants';
-import { useIntl } from 'react-intl';
-import Grid from '@material-ui/core/Grid';
-import { AppTypography } from '../../components/app-typography';
+import { globalMessages } from '../../app-global.messages';
 import { LOCALE } from '../../app.constants';
+import { AppSubmitButton } from '../../components/app-button/app-submit-button';
+import { AppForm, AppFormField } from '../../components/app-form';
+import { AppTypography } from '../../components/app-typography';
+import { getInitialPhotograph } from '../admin-profile.constants';
 import { PhotographFormPrices } from './photograph-form-prices';
+import { PhotosArray } from './photos-array';
+import { usePhotographFormLogic } from './use-photograph-form-logic';
+import { usePhotographFormStyles } from './use-photograph-form-styles';
 
 type PhotographFormProps = {
   defaultValues?: Photograph;
@@ -71,14 +71,6 @@ export const PhotographForm = memo(
           </Grid>
           <Grid item xs={12} md={4}>
             <AppFormField
-              name='photographType'
-              type='select'
-              options={PHOTOGRAPH_TYPE_SELECT_OPTIONS}
-              label={formatMessage(globalMessages.photographType)}
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <AppFormField
               name='videoBackground'
               type='text'
               placeholder={formatMessage(globalMessages.videoBackgroundLink)}
@@ -111,11 +103,7 @@ export const PhotographForm = memo(
             />
           </Grid>
           <Grid item xs={12}>
-            <AppFormField
-              name='photos'
-              type='image'
-              label={formatMessage(globalMessages.photos)}
-            />
+            <PhotosArray />
           </Grid>
           <Grid item xs={12} md={4}>
             <AppSubmitButton

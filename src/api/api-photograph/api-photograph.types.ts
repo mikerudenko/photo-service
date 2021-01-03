@@ -27,11 +27,16 @@ export type PhotographPrice = {
   fee: number;
 };
 
+export type Photo = {
+  photoType: PhotoType;
+  src: string | File;
+};
+
 export type Photograph = {
   id: string;
-  avatar: string | File[] | null;
-  photos: string[] | File[] | null;
-  backgroundImage: string | File[] | null;
+  avatar: string | File | null;
+  photos: Photo[];
+  backgroundImage: string | File | null;
   sex: 'man' | 'women';
   photoTypes: PhotoType[];
   videoBackground: string;

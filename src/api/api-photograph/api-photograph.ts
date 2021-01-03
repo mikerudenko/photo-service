@@ -25,24 +25,6 @@ export const uploadPhotographPicture = async ({
   return await lakeImageRef.getDownloadURL();
 };
 
-export const uploadPhotographPictures = (
-  photographId: string,
-  images: File[],
-) => {
-  const imagePromises: Promise<string>[] = [];
-
-  images.forEach((image, index) => {
-    imagePromises.push(
-      uploadPhotographPicture({
-        photographId,
-        image,
-        path: `photo-${index}-${image.name.split('.').pop()}`,
-      }),
-    );
-  });
-  return Promise.all(imagePromises);
-};
-
 export const deletePhotographPicture = (url: string) =>
   firebaseStorage.refFromURL(url).delete();
 

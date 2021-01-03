@@ -2,10 +2,10 @@ import { makeStyles } from '@material-ui/styles';
 
 export const useAppDropzoneImageStyles = makeStyles((theme: any) => ({
   image: {
-    width: 300,
-    height: 300,
+    width: 500,
+    height: 500,
     margin: 20,
-    objectFit: 'none',
+    objectFit: 'contain',
     objectPosition: 'center',
   },
   dropzone: {

@@ -33,8 +33,8 @@ export const StartPageSlider = memo(() => {
     }
   });
 
-  const renderSlide = useAutoCallback((photoType: PhotoType) => {
-    return <StartPageDesktopSlide {...{ photoType }} />;
+  const renderSlide = useAutoCallback((photoType: PhotoType, index: number) => {
+    return <StartPageDesktopSlide {...{ photoType }} key={index} />;
   });
 
   const activePhotoType = useAutoMemo(
