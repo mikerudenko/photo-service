@@ -82,5 +82,10 @@
   "app.exterior": "",
   "app.drone": "",
   "start-page.title": "",
-  "start-page.select-photo-type": ""
+  "start-page.select-photo-type": "",
+  "app.portrait-photography": "",
+  "app.shoot": "",
+  "start-page.description-portrait-type": "",
+  "start-page.quote": "",
+  "start-page.seleсt-photograph": ""
 }

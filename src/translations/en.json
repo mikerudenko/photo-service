@@ -82,5 +82,10 @@
   "app.exterior": "Exterior",
   "app.drone": "Drone",
   "start-page.title": "Service for searching photographs that you need",
-  "start-page.select-photo-type": "Just select your photo session type"
+  "start-page.select-photo-type": "Just select your photo session type",
+  "app.portrait-photography": "Portrait photography",
+  "app.shoot": "Shoot",
+  "start-page.description-portrait-type": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies consectetur tristique nunc netus porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultricies consectetur tristique nunc netus porta. ",
+  "start-page.quote": "Just select you photo session type",
+  "start-page.seleсt-photograph": "Select photograph"
 }
