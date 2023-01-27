@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Web app to quick search of photograph that you need and schedule photo session📷
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
